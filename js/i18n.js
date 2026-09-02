@@ -85,7 +85,7 @@ window.I18N = {
     "why.6.desc": "Voor de woonkamer thuis of het pand van een aannemer: dezelfde zorgvuldige aanpak.",
 
     "projects.heading": "Recente projecten",
-    "projects.intro": "Een greep uit afgeronde klussen. De foto's hieronder zijn tijdelijke voorbeeldbeelden.",
+    "projects.intro": "Een greep uit afgeronde klussen.",
     "projects.filter.alle": "Alle",
     "projects.filter.schilderwerk": "Schilderwerk",
     "projects.filter.renovatie": "Renovatie",
@@ -121,8 +121,6 @@ window.I18N = {
 
     "werkgebied.heading": "Werkgebied",
     "werkgebied.text": "Actief in Nederland, met een vaste kern van regio's waarin de meeste klussen worden uitgevoerd.",
-    "werkgebied.note": "Onderstaande regio's zijn een voorbeeld en worden aangevuld met de daadwerkelijke werkgebieden.",
-    "werkgebied.map_text": "Werkgebied wordt hier op een kaart of regiolijst getoond zodra de gegevens bekend zijn.",
 
     "offerte.heading": "Een klus op de planning?",
     "offerte.text": "Vertel kort wat er moet gebeuren. Wij nemen zo snel mogelijk contact met u op.",
@@ -269,7 +267,7 @@ window.I18N = {
     "why.6.desc": "For a living room at home or a contractor's property: the same careful approach.",
 
     "projects.heading": "Recent projects",
-    "projects.intro": "A selection of completed jobs. The photos below are temporary placeholder images.",
+    "projects.intro": "A selection of completed jobs.",
     "projects.filter.alle": "All",
     "projects.filter.schilderwerk": "Painting",
     "projects.filter.renovatie": "Renovation",
@@ -305,8 +303,6 @@ window.I18N = {
 
     "werkgebied.heading": "Working area",
     "werkgebied.text": "Active across the Netherlands, with a core set of regions where most jobs are carried out.",
-    "werkgebied.note": "The regions below are an example and will be filled in with the actual working area.",
-    "werkgebied.map_text": "The working area will be shown here on a map or region list once the details are known.",
 
     "offerte.heading": "Got a job coming up?",
     "offerte.text": "Tell us briefly what needs to happen. We'll get back to you as soon as possible.",
@@ -453,7 +449,7 @@ window.I18N = {
     "why.6.desc": "Для гостиной в доме или объекта подрядчика — один и тот же внимательный подход.",
 
     "projects.heading": "Недавние проекты",
-    "projects.intro": "Подборка завершённых работ. Фотографии ниже являются временными примерами.",
+    "projects.intro": "Подборка завершённых работ.",
     "projects.filter.alle": "Все",
     "projects.filter.schilderwerk": "Покраска",
     "projects.filter.renovatie": "Ремонт",
@@ -489,8 +485,6 @@ window.I18N = {
 
     "werkgebied.heading": "Регион работы",
     "werkgebied.text": "Работаем по всей территории Нидерландов, с основным фокусом на нескольких регионах.",
-    "werkgebied.note": "Регионы ниже приведены в качестве примера и будут дополнены реальным списком.",
-    "werkgebied.map_text": "Здесь будет показан регион работы на карте или в виде списка, как только данные будут добавлены.",
 
     "offerte.heading": "Планируете ремонт?",
     "offerte.text": "Коротко опишите, что нужно сделать. Мы свяжемся с вами как можно скорее.",
