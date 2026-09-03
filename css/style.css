@@ -280,11 +280,19 @@
   overflow: hidden;
 }
 
-/* Homepage hero has no photo: same flat near-black ground as the rest of
-   the page (Werkgebied included), so the whole first screen reads as one
-   solid dark surface instead of a photo banner. */
+/* Homepage hero background photo: desaturated and darkened heavily so it
+   reads as a moody dark texture, not a bright banner — keeps the same
+   near-black surface as the rest of the page. */
 .hero-home {
   background: var(--bg);
+}
+.hero-home .hero-media img {
+  filter: grayscale(1) brightness(0.38) contrast(1.1);
+}
+.hero-home .hero-media::after {
+  background:
+    linear-gradient(0deg, rgba(10,11,13,0.98) 0%, rgba(10,11,13,0.9) 40%, rgba(10,11,13,0.8) 70%, rgba(10,11,13,0.92) 100%),
+    linear-gradient(90deg, rgba(10,11,13,0.6) 0%, rgba(10,11,13,0.15) 50%);
 }
 
 .hero-media {
