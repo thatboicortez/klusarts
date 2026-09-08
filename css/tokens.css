@@ -37,9 +37,10 @@
   --accent-dim: rgba(62, 110, 163, 0.16);
   --accent-line: rgba(62, 110, 163, 0.4);
 
-  /* Radius: sharp, blueprint-consistent. Interactive surfaces get a 2px ease, everything else 0. */
-  --radius: 2px;
-  --radius-lg: 3px;
+  /* Radius: matches the reference site's rounded, app-like interactive
+     surfaces (buttons, pills, cards) instead of the earlier sharp corners. */
+  --radius: 8px;
+  --radius-lg: 14px;
 
   /* Type */
   --font-display: 'Archivo', 'Segoe UI', system-ui, sans-serif;
