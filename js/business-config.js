@@ -33,8 +33,8 @@ window.BUSINESS = {
   team2Kvk: "[KVK-nummer 2]",
   team2Btw: "[BTW-nummer 2]",
 
-  workArea: "[Werkgebied / regio's]",
-  regions: ["[Regio 1]", "[Regio 2]", "[Regio 3]", "[Regio 4]"],
+  workArea: "Zeeland",
+  regions: ["Middelburg", "Vlissingen", "Goes", "Terneuzen", "Zierikzee", "Hulst"],
 
   // Adres alleen invullen als je een fysiek bezoekadres wilt tonen (niet verplicht voor een zzp'er).
   address: "",
