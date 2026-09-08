@@ -112,7 +112,7 @@ window.I18N = {
 
     "about.heading": "Over ons",
     "about.intro": "Twee zelfstandige vakmensen, één vertrouwd adres",
-    "about.p1": "Wij zijn twee zelfstandige vakmensen (allebei zzp'er) die samen onder de naam Klusarts Zeeland werken.",
+    "about.p1": "Wij zijn twee zelfstandige vakmensen (allebei zzp'er) die samen onder de naam KlusArts Klussenbedrijf werken.",
     "about.p2": "Geen wisselende onderaannemers en geen tussenlagen: op elke klus staat een van ons persoonlijk, van de eerste kennismaking tot de oplevering.",
     "about.team_kvk": "KvK",
     "about.team_btw": "BTW",
@@ -294,7 +294,7 @@ window.I18N = {
 
     "about.heading": "About us",
     "about.intro": "Two independent craftsmen, one trusted address",
-    "about.p1": "We are two independent craftsmen (both self-employed) working together under the name Klusarts Zeeland.",
+    "about.p1": "We are two independent craftsmen (both self-employed) working together under the name KlusArts Klussenbedrijf.",
     "about.p2": "No rotating subcontractors and no middlemen: one of us is personally on site for every job, from the first introduction to final delivery.",
     "about.team_kvk": "Chamber of Commerce",
     "about.team_btw": "VAT",
@@ -476,7 +476,7 @@ window.I18N = {
 
     "about.heading": "О нас",
     "about.intro": "Два независимых мастера, один надёжный адрес",
-    "about.p1": "Мы — два независимых мастера (оба самозанятые, zzp'ers), которые работают вместе под именем Klusarts Zeeland.",
+    "about.p1": "Мы — два независимых мастера (оба самозанятые, zzp'ers), которые работают вместе под именем KlusArts Klussenbedrijf.",
     "about.p2": "Никаких меняющихся субподрядчиков и посредников: на каждом объекте лично работает один из нас — от первого разговора до сдачи работы.",
     "about.team_kvk": "KvK",
     "about.team_btw": "BTW",
