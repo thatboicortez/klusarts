@@ -23,7 +23,7 @@ window.I18N = {
     "nav.close": "Menu sluiten",
 
     "hero.title": "Vakwerk voor elke klus.",
-    "hero.subtitle": "Allround bouw- en renovatiewerk voor woningen en bedrijven in Nederland.",
+    "hero.subtitle": "Gevelschilderwerk, sloopwerk, gevelisolatie, gipsplaten, kozijnen & deuren, stucwerk en restauratie — echte handymen voor de hele klus.",
     "hero.cta_primary": "Offerte aanvragen",
     "hero.cta_secondary": "Bekijk onze diensten",
 
@@ -205,7 +205,7 @@ window.I18N = {
     "nav.close": "Close menu",
 
     "hero.title": "Skilled work for every job.",
-    "hero.subtitle": "Allround construction and renovation work for homes and businesses in the Netherlands.",
+    "hero.subtitle": "Facade painting, demolition, facade insulation, drywall, window & door frames, plastering and restoration — real handymen for the whole job.",
     "hero.cta_primary": "Request a quote",
     "hero.cta_secondary": "View our services",
 
@@ -387,7 +387,7 @@ window.I18N = {
     "nav.close": "Закрыть меню",
 
     "hero.title": "Качественная работа для любой задачи.",
-    "hero.subtitle": "Строительные и ремонтные работы для домов и компаний по всей территории Нидерландов.",
+    "hero.subtitle": "Покраска фасадов, демонтажные работы, утепление фасадов, гипсокартон, монтаж рам и дверей, штукатурка и реставрация — реальные хендимены для любой задачи.",
     "hero.cta_primary": "Заказать смету",
     "hero.cta_secondary": "Смотреть услуги",
 
