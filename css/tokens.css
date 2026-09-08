@@ -56,17 +56,13 @@
   /* Layout */
   --container: 1360px;
   --container-narrow: 900px;
-  --edge: 1.5rem;
-  --nav-h: 84px;
+  /* A fluid clamp instead of breakpoint tiers: the side margin grows
+     continuously with viewport width, so nothing visibly snaps while
+     resizing or rotating a device. */
+  --edge: clamp(1.5rem, 4vw, 3.5rem);
+  --nav-h: clamp(68px, 9vw, 84px);
 
   color-scheme: dark;
-}
-
-@media (min-width: 640px) {
-  :root { --edge: 2.5rem; }
-}
-@media (min-width: 1024px) {
-  :root { --edge: 3.5rem; }
 }
 
 /* ---------- Reset ---------- */
