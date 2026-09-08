@@ -29,9 +29,9 @@
 
 <link rel="preload" href="/fonts/archivo-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/archivo-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=19">
-<link rel="stylesheet" href="/css/tokens.css?v=19">
-<link rel="stylesheet" href="/css/style.css?v=19">
+<link rel="stylesheet" href="/css/fonts.css?v=20">
+<link rel="stylesheet" href="/css/tokens.css?v=20">
+<link rel="stylesheet" href="/css/style.css?v=20">
 </head>
 <body data-page="diensten">
 <a class="skip-link" href="#main">Direct naar inhoud</a>
@@ -130,7 +130,7 @@
 <!-- ============================= NAVBAR ============================= -->
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="/" class="nav-logo">
+    <a href="/" class="nav-logo" aria-label="KlusArts Klussenbedrijf">
       <img class="mark" src="/images/logo-nav.png" alt="" width="200" height="200">
       <span data-biz="name">KlusArts Klussenbedrijf</span>
     </a>
@@ -162,6 +162,11 @@
     <a href="/offerte/" data-nav="offerte" data-i18n="nav.contact">Contact</a>
   </nav>
   <a href="/offerte/" class="btn btn-primary btn-block" data-i18n="nav.cta">Offerte aanvragen</a>
+  <div class="lang-switch" role="group" aria-label="Taal">
+    <button type="button" data-lang="nl">NL</button>
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="ru">RU</button>
+  </div>
 </div>
 
 <main id="main">
@@ -411,9 +416,9 @@
   </div>
 </div>
 
-<script src="/js/business-config.js?v=19"></script>
-<script src="/js/i18n.js?v=19"></script>
-<script src="/js/main.js?v=19"></script>
+<script src="/js/business-config.js?v=20"></script>
+<script src="/js/i18n.js?v=20"></script>
+<script src="/js/main.js?v=20"></script>
 <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
 </body>
 </html>

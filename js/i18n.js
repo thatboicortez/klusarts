@@ -23,7 +23,7 @@ window.I18N = {
     "nav.close": "Menu sluiten",
 
     "hero.title": "Vakwerk voor elke klus.",
-    "hero.subtitle": "Gevelschilderwerk, sloopwerk, gevelisolatie, gipsplaten, kozijnen & deuren, stucwerk en restauratie — echte handymen voor de hele klus.",
+    "hero.subtitle": "Renovatie & restauratie, timmerwerk, houtconstructies, dakwerk, dakrestauratie, gipsplaten, deuren & kozijnen, gevelisolatie, gevelschilderwerk, binnenschilderwerk, stucwerk, sloopwerk.",
     "hero.cta_primary": "Offerte aanvragen",
     "hero.cta_secondary": "Bekijk onze diensten",
 
@@ -205,7 +205,7 @@ window.I18N = {
     "nav.close": "Close menu",
 
     "hero.title": "Skilled work for every job.",
-    "hero.subtitle": "Facade painting, demolition, facade insulation, drywall, window & door frames, plastering and restoration — real handymen for the whole job.",
+    "hero.subtitle": "Renovation & restoration, carpentry, timber structures, roofing, roof restoration, drywall, doors & window frames, facade insulation, facade painting, interior painting, plastering, demolition.",
     "hero.cta_primary": "Request a quote",
     "hero.cta_secondary": "View our services",
 
@@ -387,7 +387,7 @@ window.I18N = {
     "nav.close": "Закрыть меню",
 
     "hero.title": "Качественная работа для любой задачи.",
-    "hero.subtitle": "Покраска фасадов, демонтажные работы, утепление фасадов, гипсокартон, монтаж рам и дверей, штукатурка и реставрация — реальные хендимены для любой задачи.",
+    "hero.subtitle": "Реконструкция и реставрация, столярные работы, конструкции из дерева, монтаж кровли, реставрация кровли, монтаж гипсокартона, монтаж и реставрация дверей и рам, утепление фасадов, покраска фасадов, внутренняя покраска, штукатурка, демонтажные работы.",
     "hero.cta_primary": "Заказать смету",
     "hero.cta_secondary": "Смотреть услуги",
 
