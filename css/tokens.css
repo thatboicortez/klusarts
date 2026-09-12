@@ -69,7 +69,16 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* iOS Safari can still rubber-band/pan horizontally if anything overflows
+     even by a fraction of a pixel, even with overflow-x:hidden on body only
+     — both html and body need it set. */
+  overflow-x: hidden;
+  width: 100%;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

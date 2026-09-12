@@ -12,7 +12,7 @@
  * heeft een eigen KvK- en BTW-nummer, vandaar team1... en team2... hieronder.
  */
 window.BUSINESS = {
-  name: "KlusArts Klussenbedrijf",
+  name: "KlusArts Klusbedrijf",
   tagline: "Allround klusbedrijf",
 
   phoneDisplay: "[Telefoonnummer]",
