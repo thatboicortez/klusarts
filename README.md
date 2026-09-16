@@ -67,25 +67,6 @@ staat alleen op de homepage):
 - `robots.txt` en `sitemap.xml`: vervang `https://www.uw-domein.nl/` door je
   echte domein (op alle vier de URL's in sitemap.xml).
 
-## 3D-object in de hero (homepage)
-
-Rechts naast de hero-tekst op de homepage zweeft een "bouw-kubus": een
-3x3x3 Rubik's-kubus-achtig object, volledig zelf geschreven met
-[Three.js](https://threejs.org/) (zelf gehost in
-`js/vendor/three.module.min.js`, alleen geladen op schermen ≥900px om geen
-databundel te verspillen op telefoons) - er wordt geen kant-en-klaar
-`.glb`-bestand geladen, de 27 kubusjes en hun materialen worden in
-JavaScript opgebouwd.
-
-De zes "afwerkingen" (staal, roest/oranje, beton, grafiet, hout,
-messing/geel) staan als `FACES` bovenaan in `initHeroCube()` in
-`js/main.js` - pas de `color`/`metalness`/`roughness`-waarden daar aan om
-het uiterlijk te wijzigen. Losse lagen draaien zichzelf om de beurt 90
-graden (de "slice-turn engine" in dezelfde functie); het hele object
-zweeft via de CSS-animatie `hero-float` op `#hero3d` in `css/style.css`.
-Bij `prefers-reduced-motion` wordt de kubus één keer statisch getekend en
-draait er verder niets.
-
 ## Cache tijdens lokaal ontwikkelen
 
 Alle CSS/JS-bestanden worden geladen met een `?v=9`-achtergrondje aan het

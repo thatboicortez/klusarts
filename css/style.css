@@ -388,53 +388,25 @@
 }
 
 /* Homepage hero only: vertically centered (no bottom-anchored content below
-   it any more), with a 3D model split to the right at wider viewports. */
+   it any more), no side object - title/subtitle/buttons centered as one
+   column on every viewport width. */
 .hero-home {
   align-items: center;
 }
 .hero-home .hero-content {
   padding-bottom: 0;
 }
-.hero-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: center;
-  gap: 2.5rem;
-}
-@media (min-width: 900px) {
-  .hero-split {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: 2rem;
-  }
-}
-
-.hero-3d {
-  display: none;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  max-width: 520px;
+.hero-home .hero-text {
+  max-width: 46rem;
   margin-inline: auto;
-  /* gentle up/down levitation, driven by main.js */
-  animation: hero-float 6.5s ease-in-out infinite;
+  text-align: center;
 }
-@media (min-width: 900px) {
-  .hero-3d { display: block; }
+.hero-home .hero-title,
+.hero-home .hero-subtitle {
+  margin-inline: auto;
 }
-.hero-3d canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-  /* Purely decorative and self-animating: no drag-to-orbit, no click target. */
-  pointer-events: none;
-}
-
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-3d { animation: none; }
+.hero-home .hero-actions {
+  justify-content: center;
 }
 
 /* Compact banner reused on inner pages (Diensten/Projecten/Offerte) instead of
