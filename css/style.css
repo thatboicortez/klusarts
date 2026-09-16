@@ -420,12 +420,10 @@
 @media (min-width: 900px) {
   .hero-3d { display: block; }
 }
-.hero-3d model-viewer {
+.hero-3d canvas {
   width: 100%;
   height: 100%;
-  --poster-color: transparent;
-  --progress-bar-height: 0px;
-  background-color: transparent;
+  display: block;
   /* Purely decorative and self-animating: no drag-to-orbit, no click target. */
   pointer-events: none;
 }

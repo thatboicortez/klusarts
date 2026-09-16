@@ -502,69 +502,209 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Homepage hero: 3D model, camera orbits continuously around it       */
+  /* Homepage hero: a custom "construction cube" - a 3x3x3 Rubik's-style */
+  /* puzzle built from scratch with Three.js (no premade .glb model),    */
+  /* six real-material finishes instead of the classic sticker colours.  */
+  /* The whole thing floats via the CSS animation on #hero3d; this only  */
+  /* drives the cube's own slow spin and its individual slice turns.     */
   /* ------------------------------------------------------------------ */
-  function initHero3D() {
+  function initHeroCube() {
     var wrap = document.getElementById("hero3d");
-    var viewer = document.getElementById("heroModel");
-    if (!wrap || !viewer) return;
+    var canvas = document.getElementById("heroCube");
+    if (!wrap || !canvas) return;
 
     /* Desktop-only feature (the CSS hides .hero-3d below 900px): skip
-       loading the ~1MB model-viewer library and the ~2.3MB model entirely
-       on phones rather than fetching them just to stay invisible. */
+       fetching the ~670KB Three.js build entirely on phones rather than
+       loading it just to stay invisible. */
     if (!window.matchMedia || !window.matchMedia("(min-width: 900px)").matches) return;
 
-    var script = document.createElement("script");
-    script.type = "module";
-    script.src = "/js/vendor/model-viewer.min.js?v=14";
-    document.head.appendChild(script);
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    import("/js/vendor/three.module.min.js?v=29").then(function (THREE) {
+      /* Six finishes standing in for the classic sticker colours, one per
+         face of the solved cube - tuned to read as real materials rather
+         than plastic. */
+      var FACES = {
+        right:  { color: 0x4a7fb8, metalness: 0.55, roughness: 0.35 }, // brushed steel
+        left:   { color: 0xb5551c, metalness: 0.08, roughness: 0.75 }, // rusted / safety orange
+        top:    { color: 0xc7ccd1, metalness: 0.04, roughness: 0.9  }, // concrete
+        bottom: { color: 0x33363c, metalness: 0.1,  roughness: 0.8  }, // graphite
+        front:  { color: 0x7a5230, metalness: 0,    roughness: 0.95 }, // timber
+        back:   { color: 0xc9a227, metalness: 0.2,  roughness: 0.6  }  // brass / hazard yellow
+      };
+      var innerMat = new THREE.MeshStandardMaterial({ color: 0x101214, roughness: 1 });
 
-    var rafId = null;
-    var start = null;
-
-    function tick(now) {
-      try {
-        if (start === null) start = now;
-        var t = (now - start) / 1000;
-
-        /* Orbit the CAMERA around the model instead of rotating the model's
-           own geometry. camera-target defaults to "auto auto auto" - the
-           model's bounding-box center, a fixed point in world space - so at
-           any theta/phi the object stays fully framed. Rotating the model
-           itself (via the `orientation` property) instead turned out to
-           clip parts of it off-frame whenever the model's own local origin
-           isn't centered on its geometry, which this sidesteps entirely. */
-        var theta = (t * 22) % 360; // continuous spin around the object
-        var phi = 78 + 8 * Math.sin(t * 0.37) + 4 * Math.sin(t * 0.91 + 1.1); // gentle up/down tilt wobble
-
-        viewer.cameraOrbit = theta.toFixed(2) + "deg " + phi.toFixed(2) + "deg 155%";
-      } catch (err) {
-        console.error("[hero3d] rotation loop stopped:", err);
-        return; // stop retrying so the error is not spammed every frame
+      function faceMaterial(spec) {
+        return new THREE.MeshStandardMaterial({
+          color: spec.color,
+          metalness: spec.metalness,
+          roughness: spec.roughness
+        });
       }
-      rafId = requestAnimationFrame(tick);
-    }
 
-    function play() {
-      if (rafId === null) rafId = requestAnimationFrame(tick);
-    }
-    function pause() {
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-        start = null;
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+      camera.position.set(4.1, 3.2, 5.05);
+      camera.lookAt(0, 0, 0);
+
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+      var key = new THREE.DirectionalLight(0xffffff, 1.05);
+      key.position.set(4, 6, 5);
+      scene.add(key);
+      var fill = new THREE.DirectionalLight(0xbcd4f0, 0.35);
+      fill.position.set(-5, -2, -4);
+      scene.add(fill);
+
+      var root = new THREE.Group(); // slow continuous spin + tilt wobble
+      var cubeGroup = new THREE.Group(); // holds the 27 cubies + turn pivots
+      root.add(cubeGroup);
+      scene.add(root);
+
+      var GAP = 1.02;
+      var SIZE = 0.94;
+      var cubies = [];
+
+      [-1, 0, 1].forEach(function (xi) {
+        [-1, 0, 1].forEach(function (yi) {
+          [-1, 0, 1].forEach(function (zi) {
+            var geo = new THREE.BoxGeometry(SIZE, SIZE, SIZE);
+            var mats = [
+              xi === 1 ? faceMaterial(FACES.right) : innerMat,
+              xi === -1 ? faceMaterial(FACES.left) : innerMat,
+              yi === 1 ? faceMaterial(FACES.top) : innerMat,
+              yi === -1 ? faceMaterial(FACES.bottom) : innerMat,
+              zi === 1 ? faceMaterial(FACES.front) : innerMat,
+              zi === -1 ? faceMaterial(FACES.back) : innerMat
+            ];
+            var cubie = new THREE.Mesh(geo, mats);
+            cubie.position.set(xi * GAP, yi * GAP, zi * GAP);
+            cubeGroup.add(cubie);
+            cubies.push(cubie);
+          });
+        });
+      });
+
+      var baseTiltX = -0.34;
+      root.rotation.x = baseTiltX;
+      root.rotation.y = 0.68;
+
+      /* ---- slice-turn engine ----------------------------------------
+         Reparent the 9 cubies of a random layer onto a pivot, animate the
+         pivot 90 degrees on that axis, then bake the result back into each
+         cubie's own transform. Object3D#attach() preserves world transforms
+         across reparenting, so nothing jumps at either end of a turn. */
+      var turning = false;
+
+      function snap(obj) {
+        // After many 90-degree turns, floating-point drift creeps into the
+        // rotation matrix; since every turn is an exact axis-aligned
+        // quarter-turn, every element of the rotation part must be -1, 0
+        // or 1 - rounding them (and the position) removes the drift.
+        obj.updateMatrix();
+        var e = obj.matrix.elements.slice();
+        [0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14].forEach(function (i) {
+          e[i] = Math.round(e[i]);
+        });
+        obj.matrix.fromArray(e);
+        obj.matrix.decompose(obj.position, obj.quaternion, obj.scale);
       }
-    }
 
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) pause();
-      else play();
+      function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+      function turnRandomSlice() {
+        if (turning || document.hidden) return;
+        turning = true;
+
+        var axis = ["x", "y", "z"][Math.floor(Math.random() * 3)];
+        var layer = Math.floor(Math.random() * 3) - 1; // -1, 0 or 1
+        var dir = Math.random() < 0.5 ? 1 : -1;
+
+        var pivot = new THREE.Group();
+        cubeGroup.add(pivot);
+        var affected = cubies.filter(function (c) {
+          return Math.round(c.position[axis] / GAP) === layer;
+        });
+        affected.forEach(function (c) { pivot.attach(c); });
+
+        var target = dir * Math.PI / 2;
+        var duration = 480;
+        var startTime = null;
+
+        function step(now) {
+          if (startTime === null) startTime = now;
+          var t = Math.min((now - startTime) / duration, 1);
+          pivot.rotation[axis] = target * ease(t);
+          if (t < 1) {
+            requestAnimationFrame(step);
+            return;
+          }
+          affected.forEach(function (c) {
+            cubeGroup.attach(c);
+            snap(c);
+          });
+          cubeGroup.remove(pivot);
+          turning = false;
+        }
+        requestAnimationFrame(step);
+      }
+
+      var turnTimer = null;
+      function scheduleTurn() {
+        turnTimer = window.setTimeout(function () {
+          turnRandomSlice();
+          scheduleTurn();
+        }, 900 + Math.random() * 900);
+      }
+
+      function resize() {
+        var w = wrap.clientWidth || 1;
+        var h = wrap.clientHeight || 1;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      if (window.ResizeObserver) {
+        new ResizeObserver(resize).observe(wrap);
+      } else {
+        window.addEventListener("resize", resize);
+      }
+
+      renderer.render(scene, camera); // first paint immediately, even if reduced-motion stops here
+
+      if (reduceMotion) return;
+
+      var rafId = null;
+      var t0 = null;
+      function frame(now) {
+        if (t0 === null) t0 = now;
+        var t = (now - t0) / 1000;
+        root.rotation.y += 0.0028;
+        root.rotation.x = baseTiltX + Math.sin(t * 0.35) * 0.06;
+        renderer.render(scene, camera);
+        rafId = requestAnimationFrame(frame);
+      }
+      function play() {
+        if (rafId === null) rafId = requestAnimationFrame(frame);
+        if (turnTimer === null) scheduleTurn();
+      }
+      function pause() {
+        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+        if (turnTimer !== null) { clearTimeout(turnTimer); turnTimer = null; }
+      }
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) pause();
+        else play();
+      });
+
+      play();
+    }).catch(function (err) {
+      console.error("[hero3d] failed to load the 3D cube:", err);
     });
-
-    play();
   }
 
   /* ------------------------------------------------------------------ */
@@ -581,6 +721,6 @@
     initServiceModal();
     initUpload();
     initForm();
-    initHero3D();
+    initHeroCube();
   });
 })();

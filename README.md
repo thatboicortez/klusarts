@@ -67,28 +67,24 @@ staat alleen op de homepage):
 - `robots.txt` en `sitemap.xml`: vervang `https://www.uw-domein.nl/` door je
   echte domein (op alle vier de URL's in sitemap.xml).
 
-## 3D-model in de hero (homepage)
+## 3D-object in de hero (homepage)
 
-Rechts naast de hero-tekst op de homepage draait en zweeft een 3D-object
-(`models/hammer.glb`), getoond via de library
-[`@google/model-viewer`](https://modelviewer.dev/) (zelf gehost in
-`js/vendor/model-viewer.min.js`, alleen geladen op schermen ≥900px om geen
-databundel te verspillen op telefoons).
+Rechts naast de hero-tekst op de homepage zweeft een "bouw-kubus": een
+3x3x3 Rubik's-kubus-achtig object, volledig zelf geschreven met
+[Three.js](https://threejs.org/) (zelf gehost in
+`js/vendor/three.module.min.js`, alleen geladen op schermen ≥900px om geen
+databundel te verspillen op telefoons) - er wordt geen kant-en-klaar
+`.glb`-bestand geladen, de 27 kubusjes en hun materialen worden in
+JavaScript opgebouwd.
 
-**Belangrijk: deze vendor-file staat bewust vast op versie 3.5.0, niet de
-nieuwste 4.x.** Versie 4.3.1 bevat een bug in de ingebouwde AR-module
-(`onUpdateScene`) die een `TypeError` gooit bij elke wijziging van de
-`orientation`-property, wat de continue rotatie-animatie in `js/main.js`
-(functie `initHero3D`) volledig blokkeert. Bijwerken naar een nieuwere versie
-moet eerst opnieuw getest worden op exact dit gedrag (open de browserconsole
-en controleer op herhaalde errors met "onUpdateScene" erin) voordat je 'm
-live zet.
-
-Het 3D-model vervangen: zet het nieuwe `.glb`-bestand in `models/` en pas het
-`src`-pad aan in `index.html` (zoek naar `id="heroModel"`). De draai- en
-zweefanimatie zelf staat in `js/main.js` (`initHero3D`); de drie rotatiegetallen
-in de `orientation`-string zijn niet gewoon X/Y/Z - zie de comment daar voor
-de uitleg welk getal welke as is.
+De zes "afwerkingen" (staal, roest/oranje, beton, grafiet, hout,
+messing/geel) staan als `FACES` bovenaan in `initHeroCube()` in
+`js/main.js` - pas de `color`/`metalness`/`roughness`-waarden daar aan om
+het uiterlijk te wijzigen. Losse lagen draaien zichzelf om de beurt 90
+graden (de "slice-turn engine" in dezelfde functie); het hele object
+zweeft via de CSS-animatie `hero-float` op `#hero3d` in `css/style.css`.
+Bij `prefers-reduced-motion` wordt de kubus één keer statisch getekend en
+draait er verder niets.
 
 ## Cache tijdens lokaal ontwikkelen
 
