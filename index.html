@@ -30,9 +30,9 @@
 <!-- Fonts: self-hosted, preloaded for the hero -->
 <link rel="preload" href="/fonts/archivo-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/archivo-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/fonts.css?v=25">
-<link rel="stylesheet" href="/css/tokens.css?v=25">
-<link rel="stylesheet" href="/css/style.css?v=25">
+<link rel="stylesheet" href="/css/fonts.css?v=26">
+<link rel="stylesheet" href="/css/tokens.css?v=26">
+<link rel="stylesheet" href="/css/style.css?v=26">
 
 <!-- LocalBusiness structured data. Keep these values in sync with js/business-config.js. -->
 <script type="application/ld+json">
@@ -207,7 +207,10 @@
 <!-- ============================= HERO ============================= -->
 <section class="hero hero-home">
   <div class="hero-media">
-    <img src="/images/hero-home-bg.jpg" alt="" loading="eager" fetchpriority="high">
+    <picture>
+      <source media="(max-width: 899px)" srcset="/images/hero-home-bg-mobile.jpg">
+      <img src="/images/hero-home-bg.jpg" alt="" loading="eager" fetchpriority="high">
+    </picture>
   </div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="container hero-content">
@@ -382,9 +385,9 @@
   </div>
 </footer>
 
-<script src="/js/business-config.js?v=25"></script>
-<script src="/js/i18n.js?v=25"></script>
-<script src="/js/main.js?v=25"></script>
+<script src="/js/business-config.js?v=26"></script>
+<script src="/js/i18n.js?v=26"></script>
+<script src="/js/main.js?v=26"></script>
 <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
 </body>
 </html>
