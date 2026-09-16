@@ -312,6 +312,7 @@
     linear-gradient(0deg, rgba(10,11,13,0.95) 0%, rgba(10,11,13,0.65) 40%, rgba(10,11,13,0.45) 70%, rgba(10,11,13,0.75) 100%),
     linear-gradient(90deg, rgba(10,11,13,0.45) 0%, rgba(10,11,13,0.1) 50%);
 }
+.hero-home .hero-grid { display: none; }
 
 .hero-media {
   position: absolute;
