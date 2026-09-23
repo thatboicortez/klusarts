@@ -1147,6 +1147,19 @@
   .footer-top { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; }
 }
 
+/* Navigatie + Contact sit side by side even on mobile (instead of a third
+   full-height stacked block) - the wrapper only exists for that narrow
+   layout; at desktop width it disappears so its two children rejoin
+   .footer-top's own 3-column grid as siblings of .footer-brand. */
+.footer-links-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+}
+@media (min-width: 900px) {
+  .footer-links-row { display: contents; }
+}
+
 .footer-brand .nav-logo { margin-bottom: 0.7rem; }
 .footer-brand p { color: var(--text-muted); font-size: 0.88rem; max-width: 32ch; margin-bottom: 1.1rem; }
 .footer-cta-group { display: flex; flex-wrap: wrap; gap: 0.7rem; }
@@ -1192,7 +1205,6 @@
   font-size: 0.8rem;
   color: var(--text-faint);
 }
-.footer-bottom .lang-switch { transform: scale(0.94); transform-origin: left center; }
 
 /* ==========================================================================
    Service detail modal

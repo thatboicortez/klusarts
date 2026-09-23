@@ -161,7 +161,6 @@ window.I18N = {
     "form.remove_photo": "Foto verwijderen",
 
     "footer.tagline": "Allround handymen en bouwvakkers voor particulieren en bedrijven in Nederland.",
-    "footer.naam_label": "Naam",
     "footer.telefoon_label": "Telefoon",
     "footer.email_label": "E-mail",
     "footer.werkgebied_label": "Werkgebied",
@@ -343,7 +342,6 @@ window.I18N = {
     "form.remove_photo": "Remove photo",
 
     "footer.tagline": "Allround handymen and builders for homeowners and businesses in the Netherlands.",
-    "footer.naam_label": "Name",
     "footer.telefoon_label": "Phone",
     "footer.email_label": "Email",
     "footer.werkgebied_label": "Working area",
@@ -525,7 +523,6 @@ window.I18N = {
     "form.remove_photo": "Удалить фото",
 
     "footer.tagline": "Универсальные мастера и строители для частных клиентов и компаний в Нидерландах.",
-    "footer.naam_label": "Имя",
     "footer.telefoon_label": "Телефон",
     "footer.email_label": "Эл. почта",
     "footer.werkgebied_label": "Регион работы",
