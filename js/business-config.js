@@ -15,22 +15,22 @@ window.BUSINESS = {
   name: "KlusArts Klusbedrijf",
   tagline: "Allround klusbedrijf",
 
-  phoneDisplay: "[Telefoonnummer]",
+  phoneDisplay: "+31 6 58 72 32 73",
   // Alleen invullen als phoneDisplay een echt nummer is, bv. "+31 6 12345678" -> "+31612345678"
-  phoneHref: "",
+  phoneHref: "+31658723273",
 
-  whatsappDisplay: "[WhatsApp-nummer]",
+  whatsappDisplay: "+31 6 58 72 32 73",
   // Internationaal formaat zonder + of spaties, bv. "31612345678"
-  whatsappNumber: "",
+  whatsappNumber: "31658723273",
 
-  email: "[email@voorbeeld.nl]",
+  email: "klusarts@gmail.com",
 
-  team1Name: "[Naam vakman 1]",
-  team1Kvk: "[KVK-nummer 1]",
+  team1Name: "Mykola Dykhtyar",
+  team1Kvk: "42169750",
   team1Btw: "[BTW-nummer 1]",
 
-  team2Name: "[Naam vakman 2]",
-  team2Kvk: "[KVK-nummer 2]",
+  team2Name: "Arthur Brown",
+  team2Kvk: "42169777",
   team2Btw: "[BTW-nummer 2]",
 
   workArea: "Zeeland",
