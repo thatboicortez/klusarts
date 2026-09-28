@@ -664,6 +664,11 @@
 @media (max-width: 479px) {
   .gallery-item.gallery-item--pair { grid-column: span 1; aspect-ratio: 1 / 1.05; grid-template-columns: minmax(0, 1fr); }
 }
+/* .gallery-item.gallery-item--pair's own `display: grid` above has the same
+   specificity as .gallery-item[hidden] and comes later in the file, so it
+   was winning the cascade and pair items stayed visible under every filter
+   category. This three-part selector outranks both and actually hides them. */
+.gallery-item.gallery-item--pair[hidden] { display: none; }
 .pair-half {
   position: relative;
   overflow: hidden;
