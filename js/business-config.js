@@ -27,7 +27,7 @@ window.BUSINESS = {
 
   team1Name: "Mykola Dykhtyar",
   team1Kvk: "42169750",
-  team1Btw: "[BTW-nummer 1]",
+  team1Btw: "NL005553006B38",
 
   team2Name: "Arthur Brown",
   team2Kvk: "42169777",
