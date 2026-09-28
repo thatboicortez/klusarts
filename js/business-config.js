@@ -31,7 +31,7 @@ window.BUSINESS = {
 
   team2Name: "Arthur Brown",
   team2Kvk: "42169777",
-  team2Btw: "[BTW-nummer 2]",
+  team2Btw: "NL005552982B60",
 
   workArea: "Zeeland",
   regions: ["Middelburg", "Vlissingen", "Goes", "Terneuzen", "Zierikzee", "Hulst"],
