@@ -273,7 +273,7 @@ p { text-wrap: pretty; }
 
 /* ---------- Hero ---------- */
 .hero {
-  position: relative; overflow: hidden;
+  position: relative;
   display: flex; flex-direction: column; justify-content: center;
   min-height: min(780px, calc(100dvh - var(--header-h)));
   padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 6vw, 72px);
@@ -285,11 +285,12 @@ p { text-wrap: pretty; }
   background: radial-gradient(55% 60% at 50% 0%, rgba(255,255,255,0.09), transparent 72%);
 }
 .hero-media {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  position: absolute; inset: 0 0 -160px 0; z-index: 0; pointer-events: none; /* loopt door onder de hero, zodat het uitlopen niet op de rand van het blok eindigt */
   /* de foto zelf wordt transparant naar onderen: geen rand, geen kleur om op af te stemmen */
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0.1) 88%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0.1) 88%, transparent 100%);
 }
+.hero-media picture { display: block; height: 100%; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.28; }
 .hero > .container { position: relative; z-index: 2; }
 .hero .tag { margin-bottom: 24px; }
