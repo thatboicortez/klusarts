@@ -4,114 +4,141 @@
   var BUSINESS = window.BUSINESS || {};
   var I18N = window.I18N || { nl: {} };
   var LANG_KEY = "zzp-lang";
-  var currentLang = localStorage.getItem(LANG_KEY) || "nl";
+  var doc = document.documentElement;
+
+  function store(key, value) {
+    try {
+      if (value === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, value);
+    } catch (e) { /* privémodus / geblokkeerde opslag: gewoon doorgaan */ }
+    return null;
+  }
+
+  var currentLang = store(LANG_KEY) || "nl";
   if (!I18N[currentLang]) currentLang = "nl";
 
   /* ------------------------------------------------------------------ */
-  /* Business config injection                                          */
+  /* Scroll lock (menu + lightbox delen één teller)                      */
   /* ------------------------------------------------------------------ */
+  var lockCount = 0;
+  var lockY = 0;
+  function lockScroll() {
+    if (lockCount++ > 0) return;
+    lockY = window.pageYOffset || doc.scrollTop || 0;
+    doc.classList.add("is-locked");
+    document.body.style.top = -lockY + "px";
+  }
+  function unlockScroll() {
+    if (lockCount === 0 || --lockCount > 0) return;
+    doc.classList.remove("is-locked");
+    document.body.style.top = "";
+    var y = lockY;
+    function restore() {
+      try { window.scrollTo({ top: y, left: 0, behavior: "instant" }); } catch (e) { window.scrollTo(0, y); }
+    }
+    restore();
+    /* de terugknop laat de browser zelf nog een scrollpositie terugzetten; die overschrijven we */
+    requestAnimationFrame(restore);
+    setTimeout(restore, 80);
+  }
+
+  /* Achtergrond onbereikbaar maken voor toetsenbord/screenreader zolang een overlay open is */
+  function setInert(on, except) {
+    ["main", ".footer"].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el && el !== except) {
+        if (on) el.setAttribute("inert", ""); else el.removeAttribute("inert");
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Bedrijfsgegevens                                                    */
+  /* ------------------------------------------------------------------ */
+  function hasValue(v) { return typeof v === "string" && v !== "" && v.indexOf("[") === -1; }
+
   function applyBusiness() {
     document.querySelectorAll("[data-biz]").forEach(function (el) {
       var key = el.getAttribute("data-biz");
-      if (BUSINESS[key] !== undefined && BUSINESS[key] !== "") {
-        el.textContent = BUSINESS[key];
-      } else if (BUSINESS[key] !== undefined) {
-        el.textContent = BUSINESS[key];
-      }
+      if (BUSINESS[key] !== undefined) el.textContent = BUSINESS[key];
     });
 
     document.querySelectorAll("[data-biz-tel]").forEach(function (el) {
-      if (BUSINESS.phoneHref) {
-        el.setAttribute("href", "tel:" + BUSINESS.phoneHref);
-      } else {
-        el.setAttribute("href", "#offerte");
-        el.setAttribute("data-placeholder-link", "true");
-      }
+      if (hasValue(BUSINESS.phoneHref)) el.setAttribute("href", "tel:" + BUSINESS.phoneHref);
+      else el.hidden = true;
     });
 
     document.querySelectorAll("[data-biz-whatsapp]").forEach(function (el) {
-      if (BUSINESS.whatsappNumber) {
+      if (hasValue(BUSINESS.whatsappNumber)) {
         var msg = encodeURIComponent("Hallo, ik heb een vraag over een klus.");
         el.setAttribute("href", "https://wa.me/" + BUSINESS.whatsappNumber + "?text=" + msg);
-      } else {
-        el.setAttribute("href", "#offerte");
-        el.setAttribute("data-placeholder-link", "true");
-      }
+      } else el.hidden = true;
     });
 
     document.querySelectorAll("[data-biz-email]").forEach(function (el) {
-      if (BUSINESS.email && BUSINESS.email.indexOf("[") === -1) {
-        el.setAttribute("href", "mailto:" + BUSINESS.email);
-      } else {
-        el.setAttribute("href", "#offerte");
-        el.setAttribute("data-placeholder-link", "true");
-      }
+      if (hasValue(BUSINESS.email)) el.setAttribute("href", "mailto:" + BUSINESS.email);
+      else el.hidden = true;
     });
 
-    var chipsWrap = document.getElementById("regionChips");
-    if (chipsWrap && Array.isArray(BUSINESS.regions)) {
-      chipsWrap.innerHTML = "";
+    var chips = document.getElementById("regionChips");
+    if (chips && Array.isArray(BUSINESS.regions)) {
+      chips.innerHTML = "";
       BUSINESS.regions.forEach(function (region) {
         var chip = document.createElement("span");
-        chip.className = "region-chip";
-        chip.textContent = region;
-        chipsWrap.appendChild(chip);
+        chip.className = "chip";
+        chip.innerHTML = '<svg aria-hidden="true"><use href="#icon-pin"/></svg>';
+        chip.appendChild(document.createTextNode(region));
+        chips.appendChild(chip);
       });
     }
+
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
   }
 
   /* ------------------------------------------------------------------ */
   /* i18n                                                                */
   /* ------------------------------------------------------------------ */
   function withBusinessName(str) {
-    if (BUSINESS.name && BUSINESS.name.indexOf("[") === -1) {
-      return str.replace(/\[[^\]]*\]/, BUSINESS.name);
-    }
-    return str;
+    return hasValue(BUSINESS.name) ? str.replace(/\[[^\]]*\]/, BUSINESS.name) : str;
   }
 
   function t(key) {
     var dict = I18N[currentLang] || {};
-    return dict[key] !== undefined ? dict[key] : (I18N.nl[key] || key);
+    return dict[key] !== undefined ? dict[key] : (I18N.nl[key] !== undefined ? I18N.nl[key] : key);
   }
 
   function applyI18n() {
-    document.documentElement.setAttribute("lang", currentLang);
+    doc.setAttribute("lang", currentLang);
 
     var page = document.body.getAttribute("data-page") || "home";
-    var titleEl = document.querySelector("title");
-    if (titleEl) titleEl.textContent = withBusinessName(t("meta.title." + page));
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", withBusinessName(t("meta.description." + page)));
-    var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", withBusinessName(t("meta.title." + page)));
-    var ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", withBusinessName(t("meta.description." + page)));
+    var title = document.querySelector("title");
+    if (title) title.textContent = withBusinessName(t("meta.title." + page));
+    [["meta[name='description']", "meta.description."], ["meta[property='og:title']", "meta.title."], ["meta[property='og:description']", "meta.description."]]
+      .forEach(function (pair) {
+        var el = document.querySelector(pair[0]);
+        if (el) el.setAttribute("content", withBusinessName(t(pair[1] + page)));
+      });
 
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var key = el.getAttribute("data-i18n");
-      el.textContent = t(key);
-    });
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
-      el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder")));
-    });
-    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
-      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
-    });
-    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
-      el.setAttribute("alt", t(el.getAttribute("data-i18n-alt")));
-    });
+    document.querySelectorAll("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder"))); });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria"))); });
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) { el.setAttribute("alt", t(el.getAttribute("data-i18n-alt"))); });
 
-    document.querySelectorAll(".lang-switch button").forEach(function (btn) {
-      btn.classList.toggle("is-active", btn.getAttribute("data-lang") === currentLang);
+    document.querySelectorAll(".lang button").forEach(function (btn) {
+      var active = btn.getAttribute("data-lang") === currentLang;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", String(active));
     });
   }
 
   function setLang(lang) {
-    if (!I18N[lang]) return;
+    if (!I18N[lang] || lang === currentLang) return;
     currentLang = lang;
-    localStorage.setItem(LANG_KEY, lang);
+    store(LANG_KEY, lang);
     applyI18n();
+    document.dispatchEvent(new CustomEvent("langchange"));
   }
 
   document.addEventListener("click", function (e) {
@@ -119,401 +146,402 @@
     if (btn) setLang(btn.getAttribute("data-lang"));
   });
 
-  /* ------------------------------------------------------------------ */
-  /* Highlight the current page in navigation                           */
-  /* ------------------------------------------------------------------ */
   function markActiveNav() {
     var page = document.body.getAttribute("data-page");
-    if (!page) return;
     document.querySelectorAll("[data-nav]").forEach(function (a) {
-      a.classList.toggle("is-current", a.getAttribute("data-nav") === page);
+      var on = a.getAttribute("data-nav") === page;
+      a.classList.toggle("is-current", on);
+      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
   }
 
   /* ------------------------------------------------------------------ */
-  /* Navbar: scroll state via IntersectionObserver (no scroll listener)  */
+  /* Mobiel menu                                                         */
   /* ------------------------------------------------------------------ */
-  function initNavScroll() {
-    var navbar = document.querySelector(".navbar");
-    var sentinel = document.getElementById("scrollSentinel");
-    if (!navbar || !sentinel) return;
-    var io = new IntersectionObserver(
-      function (entries) {
-        navbar.classList.toggle("is-scrolled", !entries[0].isIntersecting);
-      },
-      { threshold: 0, rootMargin: "0px" }
-    );
-    io.observe(sentinel);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Mobile menu                                                         */
-  /* ------------------------------------------------------------------ */
+  var closeMenu = function () {};
   function initMobileMenu() {
-    var toggle = document.getElementById("navToggle");
+    var toggle = document.getElementById("menuBtn");
     var menu = document.getElementById("mobileMenu");
     if (!toggle || !menu) return;
+    var isOpen = false;
 
-    function close() {
-      toggle.classList.remove("is-open");
-      menu.classList.remove("is-open");
-      document.body.classList.remove("no-scroll");
-      toggle.setAttribute("aria-expanded", "false");
+    function setOpen(open) {
+      if (open === isOpen) return;
+      isOpen = open;
+      menu.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", t(open ? "nav.close" : "nav.open"));
+      setInert(open);
+      if (open) lockScroll(); else unlockScroll();
     }
-    function open() {
-      toggle.classList.add("is-open");
-      menu.classList.add("is-open");
-      document.body.classList.add("no-scroll");
-      toggle.setAttribute("aria-expanded", "true");
-    }
+    closeMenu = function () { setOpen(false); };
 
-    toggle.addEventListener("click", function () {
-      var isOpen = menu.classList.contains("is-open");
-      isOpen ? close() : open();
-    });
-    menu.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", close);
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") close();
+    toggle.addEventListener("click", function () { setOpen(!isOpen); });
+    menu.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+    window.matchMedia("(min-width: 901px)").addEventListener("change", function (m) { if (m.matches) setOpen(false); });
+    document.addEventListener("langchange", function () {
+      toggle.setAttribute("aria-label", t(isOpen ? "nav.close" : "nav.open"));
     });
   }
 
   /* ------------------------------------------------------------------ */
-  /* Reveal on scroll                                                    */
+  /* Reveal bij scrollen                                                 */
   /* ------------------------------------------------------------------ */
   function initReveal() {
-    var targets = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
+    var targets = Array.prototype.slice.call(document.querySelectorAll("[data-reveal], [data-stagger]"));
     if (!targets.length) return;
 
-    function revealAll() {
-      targets.forEach(function (el) { el.classList.add("is-visible"); });
-    }
+    document.querySelectorAll("[data-stagger]").forEach(function (parent) {
+      Array.prototype.forEach.call(parent.children, function (child, i) {
+        child.style.setProperty("--d", Math.min(i, 8) * 70 + "ms");
+      });
+    });
+    document.querySelectorAll("[data-reveal]").forEach(function (el) {
+      var d = el.getAttribute("data-reveal");
+      if (d) el.style.setProperty("--d", parseInt(d, 10) + "ms");
+    });
 
     if (typeof IntersectionObserver !== "function") {
-      revealAll();
+      targets.forEach(function (el) { el.classList.add("is-in"); });
       return;
     }
-
-    var io = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
-    );
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        /* ook wat al boven het scherm ligt (bv. na een ankersprong) meteen tonen */
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+          entry.target.classList.add("is-in");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     targets.forEach(function (el) { io.observe(el); });
-
-    /* Safety net: content must never stay invisible because a scroll animation
-       failed to fire (throttled background tab, unusual embed context, etc.). */
-    setTimeout(revealAll, 2500);
   }
 
   /* ------------------------------------------------------------------ */
-  /* Gallery filter + lightbox                                          */
+  /* Galerij: filters + lightbox                                         */
   /* ------------------------------------------------------------------ */
   function initGallery() {
-    var filterBtns = document.querySelectorAll(".filter-btn");
-    var items = Array.prototype.slice.call(document.querySelectorAll(".gallery-item"));
-    var lightbox = document.getElementById("lightbox");
-    if (!items.length || !lightbox) return;
+    var gallery = document.getElementById("gallery");
+    if (!gallery) return;
 
-    var lbFigure = lightbox.querySelector(".lightbox-figure");
-    var lbImg = lightbox.querySelector(".lightbox-figure img");
-    var lbCaption = lightbox.querySelector(".lightbox-caption");
-    var lbPair = lightbox.querySelector(".lightbox-pair");
-    var lbPairFigures = lbPair ? lbPair.querySelectorAll("figure") : [];
-    var closeBtn = lightbox.querySelector(".lightbox-close");
-    var prevBtn = lightbox.querySelector(".lightbox-prev");
-    var nextBtn = lightbox.querySelector(".lightbox-next");
-    var activeIndex = 0;
-    var visibleItems = items;
+    var items = Array.prototype.slice.call(gallery.querySelectorAll(".g-item"));
+    var filterBar = document.querySelector(".filters");
+    var filters = Array.prototype.slice.call(document.querySelectorAll(".filter"));
 
-    function applyFilter(category) {
+    /* --- filters --- */
+    function applyFilter(cat, fromUser) {
+      var n = 0;
       items.forEach(function (item) {
-        var match = category === "alle" || item.getAttribute("data-category") === category;
-        item.hidden = !match;
+        var show = cat === "alle" || item.getAttribute("data-category") === cat;
+        item.hidden = !show;
+        if (show) item.style.animationDelay = Math.min(n++, 12) * 35 + "ms";
       });
-      visibleItems = items.filter(function (item) { return !item.hidden; });
-    }
-
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        filterBtns.forEach(function (b) { b.classList.remove("is-active"); });
-        btn.classList.add("is-active");
-        applyFilter(btn.getAttribute("data-filter"));
+      filters.forEach(function (b) {
+        var on = b.getAttribute("data-filter") === cat;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-pressed", String(on));
+        if (on && fromUser && filterBar && filterBar.scrollWidth > filterBar.clientWidth) {
+          b.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+        }
       });
-    });
-
-    function openLightbox(item) {
-      visibleItems = items.filter(function (i) { return !i.hidden; });
-      activeIndex = visibleItems.indexOf(item);
-      renderLightbox();
-      lightbox.classList.add("is-open");
-      document.body.classList.add("no-scroll");
-      closeBtn.focus();
-    }
-    function renderLightbox() {
-      var item = visibleItems[activeIndex];
-      if (!item) return;
-
-      var isPair = item.classList.contains("gallery-item--pair");
-      if (lbPair) lbPair.classList.toggle("is-active", isPair);
-      lbFigure.style.display = isPair ? "none" : "";
-
-      if (isPair) {
-        var halves = item.querySelectorAll(".pair-half img");
-        halves.forEach(function (img, i) {
-          var figure = lbPairFigures[i];
-          if (!figure) return;
-          var figImg = figure.querySelector("img");
-          figImg.src = img.getAttribute("src");
-          figImg.alt = img.getAttribute("alt") || "";
-        });
-      } else {
-        var img = item.querySelector("img");
-        lbImg.src = img.getAttribute("src");
-        lbImg.alt = img.getAttribute("alt") || "";
-        var tag = item.querySelector(".tag");
-        lbCaption.textContent = tag ? tag.textContent : "";
+      if (fromUser) {
+        try { history.replaceState(history.state, "", cat === "alle" ? location.pathname : "#" + cat); } catch (e) { /* ignore */ }
       }
     }
-    function closeLightbox() {
-      lightbox.classList.remove("is-open");
-      document.body.classList.remove("no-scroll");
-    }
-    function step(delta) {
-      if (!visibleItems.length) return;
-      activeIndex = (activeIndex + delta + visibleItems.length) % visibleItems.length;
-      renderLightbox();
+    filters.forEach(function (btn) {
+      btn.addEventListener("click", function () { applyFilter(btn.getAttribute("data-filter"), true); });
+    });
+    var initial = decodeURIComponent((location.hash || "").slice(1));
+    if (initial && filters.some(function (b) { return b.getAttribute("data-filter") === initial; })) applyFilter(initial, false);
+
+    /* --- lightbox --- */
+    var lb = document.getElementById("lightbox");
+    if (!lb) return;
+    var stage = lb.querySelector(".lb-stage");
+    var img = lb.querySelector(".lb-img");
+    var count = lb.querySelector(".lb-count");
+    var caption = lb.querySelector(".lb-caption");
+    var closeBtn = lb.querySelector(".lb-close");
+    var prevBtn = lb.querySelector(".lb-prev");
+    var nextBtn = lb.querySelector(".lb-next");
+
+    var slides = [];
+    var index = 0;
+    var isOpen = false;
+    var opener = null;
+    var token = 0;
+    var cache = {};
+
+    function slideFrom(el) {
+      var item = el.closest(".g-item");
+      var label = el.querySelector(".g-label");
+      var cat = item.getAttribute("data-category");
+      var pic = el.querySelector("img");
+      return {
+        full: pic.getAttribute("data-full") || pic.getAttribute("src"),
+        alt: pic.getAttribute("alt") || "",
+        cat: cat,
+        pair: label ? label.getAttribute("data-i18n") : null,
+        el: el
+      };
     }
 
-    items.forEach(function (item) {
-      item.addEventListener("click", function () { openLightbox(item); });
+    function collectSlides() {
+      slides = [];
+      items.forEach(function (item) {
+        if (item.hidden) return;
+        var triggers = item.classList.contains("g-item--pair") ? item.querySelectorAll(".g-half") : [item];
+        Array.prototype.forEach.call(triggers, function (el) { slides.push(slideFrom(el)); });
+      });
+    }
+
+    function preload(src) {
+      if (cache[src]) return cache[src];
+      var im = new Image();
+      im.decoding = "async";
+      im.src = src;
+      cache[src] = im;
+      return im;
+    }
+
+    function render(dir) {
+      var s = slides[index];
+      var myToken = ++token;
+      count.textContent = (index + 1) + " / " + slides.length;
+      var catLabel = t("projects.filter." + s.cat);
+      caption.innerHTML = "";
+      var strong = document.createElement("strong");
+      strong.textContent = s.pair ? t(s.pair) + " · " + catLabel : catLabel;
+      caption.appendChild(strong);
+      caption.appendChild(document.createTextNode(s.alt));
+
+      var next = preload(s.full);
+      var started = Date.now();
+      var d = dir || 0;
+      if (isOpen && d) {
+        img.classList.add("is-out");
+        img.style.transform = "translateX(" + (-d * 40) + "px)";
+      }
+      function swap() {
+        if (myToken !== token) return;
+        img.classList.add("is-dragging");
+        img.style.transform = d ? "translateX(" + (d * 40) + "px)" : "";
+        img.src = s.full;
+        img.alt = s.alt;
+        void img.offsetWidth;
+        img.classList.remove("is-dragging");
+        img.classList.remove("is-out");
+        img.style.transform = "";
+      }
+      function ready() {
+        var wait = d ? Math.max(0, 140 - (Date.now() - started)) : 0;
+        setTimeout(swap, wait);
+      }
+      if (next.complete && next.naturalWidth) ready();
+      else { next.addEventListener("load", ready, { once: true }); next.addEventListener("error", ready, { once: true }); }
+
+      if (slides.length > 1) {
+        preload(slides[(index + 1) % slides.length].full);
+        preload(slides[(index - 1 + slides.length) % slides.length].full);
+      }
+      prevBtn.hidden = nextBtn.hidden = slides.length < 2;
+    }
+
+    function step(delta) {
+      if (slides.length < 2) return;
+      index = (index + delta + slides.length) % slides.length;
+      render(delta > 0 ? 1 : -1);
+    }
+
+    function openAt(el) {
+      collectSlides();
+      var i = slides.findIndex(function (s) { return s.el === el; });
+      if (i < 0) return;
+      index = i;
+      opener = el;
+      isOpen = true;
+      img.removeAttribute("src");
+      render(0);
+      /* eerst de historie (met de echte scrollpositie), dan pas het scrollen vergrendelen */
+      try { history.pushState({ lb: 1 }, ""); } catch (e) { /* ignore */ }
+      lb.classList.add("is-open");
+      lb.removeAttribute("aria-hidden");
+      lockScroll();
+      setInert(true);
+      var header = document.querySelector(".header");
+      if (header) header.setAttribute("inert", "");
+      closeBtn.focus({ preventScroll: true });
+    }
+
+    function doClose() {
+      if (!isOpen) return;
+      isOpen = false;
+      lb.classList.remove("is-open");
+      lb.setAttribute("aria-hidden", "true");
+      var header = document.querySelector(".header");
+      if (header) header.removeAttribute("inert");
+      setInert(false);
+      unlockScroll();
+      if (opener) opener.focus({ preventScroll: true });
+    }
+
+    /* Terugknop (Android/iOS-swipe) sluit eerst de lightbox, niet de pagina */
+    function requestClose() {
+      if (history.state && history.state.lb) history.back();
+      else doClose();
+    }
+    window.addEventListener("popstate", function () { if (isOpen) doClose(); });
+
+    gallery.addEventListener("click", function (e) {
+      var el = e.target.closest(".g-half, .g-item:not(.g-item--pair)");
+      if (el && gallery.contains(el)) openAt(el);
     });
-    closeBtn.addEventListener("click", closeLightbox);
+    closeBtn.addEventListener("click", requestClose);
     prevBtn.addEventListener("click", function () { step(-1); });
     nextBtn.addEventListener("click", function () { step(1); });
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) closeLightbox();
-    });
+
     document.addEventListener("keydown", function (e) {
-      if (!lightbox.classList.contains("is-open")) return;
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
+      if (!isOpen) return;
+      if (e.key === "Escape") requestClose();
+      else if (e.key === "ArrowRight") step(1);
+      else if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "Tab") {
+        var f = Array.prototype.filter.call(lb.querySelectorAll("button"), function (b) { return !b.hidden; });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        else if (!lb.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+      }
     });
+
+    /* Swipe: links/rechts = vorige/volgende, omlaag = sluiten, tik naast de foto = sluiten */
+    var sx = 0, sy = 0, dx = 0, dy = 0, dragging = false;
+    stage.addEventListener("pointerdown", function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      dragging = true; sx = e.clientX; sy = e.clientY; dx = dy = 0;
+      img.classList.add("is-dragging");
+      try { stage.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      dx = e.clientX - sx; dy = e.clientY - sy;
+      if (Math.abs(dx) >= Math.abs(dy)) img.style.transform = "translateX(" + dx + "px)";
+      else img.style.transform = "translateY(" + Math.max(dy, 0) + "px)";
+    });
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      img.classList.remove("is-dragging");
+      var ax = Math.abs(dx), ay = Math.abs(dy);
+      img.style.transform = "";
+      if (ax < 6 && ay < 6) {
+        if (e && e.type === "pointerup" && e.target === stage) requestClose();
+      } else if (ax > 60 && ax > ay) step(dx < 0 ? 1 : -1);
+      else if (dy > 100 && ay > ax) requestClose();
+    }
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    stage.addEventListener("dragstart", function (e) { e.preventDefault(); });
   }
 
   /* ------------------------------------------------------------------ */
-  /* Service detail modal                                                */
-  /* ------------------------------------------------------------------ */
-  function initServiceModal() {
-    var overlay = document.getElementById("serviceModal");
-    if (!overlay) return;
-    var modalImg = overlay.querySelector(".modal-media img");
-    var modalTitle = overlay.querySelector(".modal-body h3");
-    var modalText = overlay.querySelector(".modal-body p");
-    var closeBtn = overlay.querySelector(".modal-close");
-    var lastTrigger = null;
-
-    function open(card) {
-      var slug = card.getAttribute("data-service");
-      var img = card.querySelector(".service-media img");
-      modalImg.src = img.getAttribute("src");
-      modalImg.alt = img.getAttribute("alt") || "";
-      modalTitle.textContent = t("services." + slug + ".title");
-      modalText.textContent = t("services." + slug + ".long");
-      overlay.classList.add("is-open");
-      document.body.classList.add("no-scroll");
-      lastTrigger = card;
-      closeBtn.focus();
-    }
-    function close() {
-      overlay.classList.remove("is-open");
-      document.body.classList.remove("no-scroll");
-      if (lastTrigger) lastTrigger.querySelector(".service-more").focus();
-    }
-
-    document.querySelectorAll(".service-more").forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        open(btn.closest(".service-card"));
-      });
-    });
-    closeBtn.addEventListener("click", close);
-    overlay.addEventListener("click", function (e) {
-      if (e.target === overlay) close();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && overlay.classList.contains("is-open")) close();
-    });
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Photo upload preview                                                */
-  /* ------------------------------------------------------------------ */
-  function initUpload() {
-    var input = document.getElementById("fotoInput");
-    var zone = document.getElementById("uploadZone");
-    var preview = document.getElementById("uploadPreview");
-    if (!input || !zone || !preview) return;
-
-    var MAX_FILES = 5;
-    var selectedFiles = [];
-
-    function syncInputFiles() {
-      var dt = new DataTransfer();
-      selectedFiles.forEach(function (f) { dt.items.add(f); });
-      input.files = dt.files;
-    }
-
-    function render() {
-      preview.innerHTML = "";
-      selectedFiles.forEach(function (file, index) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var thumb = document.createElement("div");
-          thumb.className = "upload-thumb";
-          var img = document.createElement("img");
-          img.src = e.target.result;
-          img.alt = file.name;
-          var removeBtn = document.createElement("button");
-          removeBtn.type = "button";
-          removeBtn.setAttribute("aria-label", t("form.remove_photo"));
-          removeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>';
-          removeBtn.addEventListener("click", function () {
-            selectedFiles.splice(index, 1);
-            syncInputFiles();
-            render();
-          });
-          thumb.appendChild(img);
-          thumb.appendChild(removeBtn);
-          preview.appendChild(thumb);
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    function addFiles(fileList) {
-      Array.prototype.slice.call(fileList).forEach(function (file) {
-        if (selectedFiles.length >= MAX_FILES) return;
-        if (file.type.indexOf("image/") !== 0) return;
-        selectedFiles.push(file);
-      });
-      syncInputFiles();
-      render();
-    }
-
-    input.addEventListener("change", function () { addFiles(input.files); });
-
-    ["dragenter", "dragover"].forEach(function (evt) {
-      zone.addEventListener(evt, function (e) {
-        e.preventDefault();
-        zone.classList.add("is-drag");
-      });
-    });
-    ["dragleave", "drop"].forEach(function (evt) {
-      zone.addEventListener(evt, function (e) {
-        e.preventDefault();
-        zone.classList.remove("is-drag");
-      });
-    });
-    zone.addEventListener("drop", function (e) {
-      if (e.dataTransfer && e.dataTransfer.files) addFiles(e.dataTransfer.files);
-    });
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Offerte form                                                        */
+  /* Offerteformulier                                                    */
   /* ------------------------------------------------------------------ */
   function initForm() {
     var form = document.getElementById("offerteForm");
     if (!form) return;
     var status = document.getElementById("formStatus");
+    var typeSel = form.querySelector("#fldType");
+    var channel = "wa";
 
-    function setError(field, hasError) {
+    var pre = new URLSearchParams(location.search).get("klus");
+    if (pre && typeSel.querySelector('option[value="' + pre + '"]')) typeSel.value = pre;
+
+    form.querySelectorAll("button[type=submit]").forEach(function (b) {
+      b.addEventListener("click", function () { channel = b.getAttribute("data-channel"); });
+    });
+
+    function setError(field, bad) {
       var wrap = field.closest(".field");
-      if (!wrap) return;
-      wrap.classList.toggle("has-error", hasError);
+      if (wrap) wrap.classList.toggle("has-error", bad);
     }
+    form.addEventListener("input", function (e) { if (e.target.closest(".field")) setError(e.target, false); });
 
-    function isValidEmail(value) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    function show(msg, kind) {
+      status.textContent = msg;
+      status.className = "form-status is-visible is-" + kind;
     }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var naam = form.querySelector("#fldNaam");
-      var email = form.querySelector("#fldEmail");
-      var telefoon = form.querySelector("#fldTelefoon");
-      var typeKlus = form.querySelector("#fldType");
-      var bericht = form.querySelector("#fldBericht");
+      if (e.submitter && e.submitter.getAttribute("data-channel")) channel = e.submitter.getAttribute("data-channel");
 
+      var f = {
+        naam: form.querySelector("#fldNaam"),
+        email: form.querySelector("#fldEmail"),
+        tel: form.querySelector("#fldTelefoon"),
+        postcode: form.querySelector("#fldPostcode"),
+        type: typeSel,
+        bericht: form.querySelector("#fldBericht")
+      };
       var valid = true;
-      [naam, telefoon, typeKlus, bericht].forEach(function (field) {
-        var ok = field.value.trim().length > 0;
-        setError(field, !ok);
+      [f.naam, f.tel, f.type, f.bericht].forEach(function (el) {
+        var ok = el.value.trim().length > 0;
+        setError(el, !ok);
         if (!ok) valid = false;
       });
-      var emailOk = isValidEmail(email.value.trim());
-      setError(email, !emailOk);
+      var emailVal = f.email.value.trim();
+      var emailOk = emailVal === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+      setError(f.email, !emailOk);
       if (!emailOk) valid = false;
 
-      status.classList.remove("is-visible", "is-success", "is-error");
-
       if (!valid) {
-        status.textContent = t("form.status.error");
-        status.classList.add("is-visible", "is-error");
+        show(t("form.status.error"), "error");
+        var firstBad = form.querySelector(".has-error input, .has-error select, .has-error textarea");
+        if (firstBad) firstBad.focus();
         return;
       }
 
-      /*
-       * TODO (site-eigenaar / ontwikkelaar): dit formulier verstuurt nu een
-       * kant-en-klare e-mail via mailto:. Dat werkt overal zonder backend,
-       * maar kan geen foto's meesturen. Voor automatische verzending mét
-       * foto-bijlagen: koppel dit formulier aan een service als Formspree,
-       * Netlify Forms, of een eigen backend-endpoint (fetch/POST).
-       */
-      var subject = encodeURIComponent("Offerteaanvraag via website - " + typeKlus.value);
-      var bodyLines = [
-        "Naam: " + naam.value,
-        "E-mail: " + email.value,
-        "Telefoon: " + telefoon.value,
-        "Postcode: " + (form.querySelector("#fldPostcode").value || "-"),
-        "Type klus: " + typeKlus.value,
+      /* De berichttekst is altijd Nederlands: dat leest de ontvanger. */
+      var typeLabel = (I18N.nl["form.type_klus." + f.type.value]) || f.type.value;
+      var lines = [
+        "Offerteaanvraag via de website",
         "",
-        bericht.value,
-      ];
-      var mailTo = (BUSINESS.email && BUSINESS.email.indexOf("[") === -1) ? BUSINESS.email : "";
-      var href = "mailto:" + mailTo + "?subject=" + subject + "&body=" + encodeURIComponent(bodyLines.join("\n"));
-      window.location.href = href;
+        "Naam: " + f.naam.value.trim(),
+        "Telefoon: " + f.tel.value.trim(),
+        emailVal ? "E-mail: " + emailVal : null,
+        f.postcode.value.trim() ? "Postcode: " + f.postcode.value.trim() : null,
+        "Type klus: " + typeLabel,
+        "",
+        f.bericht.value.trim()
+      ].filter(function (l) { return l !== null; });
+      var body = lines.join("\n");
 
-      status.textContent = t("form.status.success");
-      status.classList.add("is-visible", "is-success");
-      form.reset();
-      var preview = document.getElementById("uploadPreview");
-      if (preview) preview.innerHTML = "";
+      if (channel === "wa" && hasValue(BUSINESS.whatsappNumber)) {
+        var url = "https://wa.me/" + BUSINESS.whatsappNumber + "?text=" + encodeURIComponent(body);
+        var w = window.open(url, "_blank", "noopener");
+        if (!w) window.location.href = url;
+      } else if (hasValue(BUSINESS.email)) {
+        window.location.href = "mailto:" + BUSINESS.email +
+          "?subject=" + encodeURIComponent("Offerteaanvraag via website - " + typeLabel) +
+          "&body=" + encodeURIComponent(body);
+      }
+      show(t("form.status.success"), "success");
     });
   }
 
   /* ------------------------------------------------------------------ */
-  /* Init                                                                */
+  /* Init (scripts staan onderaan <body>: de DOM is klaar)                */
   /* ------------------------------------------------------------------ */
-  document.addEventListener("DOMContentLoaded", function () {
-    applyBusiness();
-    applyI18n();
-    markActiveNav();
-    initNavScroll();
-    initMobileMenu();
-    initReveal();
-    initGallery();
-    initServiceModal();
-    initUpload();
-    initForm();
-  });
+  applyBusiness();
+  applyI18n();
+  markActiveNav();
+  initMobileMenu();
+  initGallery();
+  initForm();
+  initReveal();
+
+  window.addEventListener("pageshow", function (e) { if (e.persisted) closeMenu(); });
 })();

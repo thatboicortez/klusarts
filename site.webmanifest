@@ -4,8 +4,8 @@
   "description": "Allround klusbedrijf & bouwvakker in Nederland",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0b0d",
-  "theme_color": "#0a0b0d",
+  "background_color": "#0e0e0e",
+  "theme_color": "#0e0e0e",
   "icons": [
     {
       "src": "/images/favicon-32.png",
