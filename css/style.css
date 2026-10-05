@@ -284,14 +284,13 @@ p { text-wrap: pretty; }
   inset: -10% 0 auto 0; height: 90%;
   background: radial-gradient(55% 60% at 50% 0%, rgba(255,255,255,0.09), transparent 72%);
 }
-.hero-media { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.28; }
-.hero-media::after { /* zacht uitlopen naar de kleur van de pagina */
-  content: ""; position: absolute; inset: auto 0 0 0; height: 75%;
-  background: linear-gradient(to bottom,
-    rgba(14, 14, 14, 0) 0%, rgba(14, 14, 14, 0.12) 20%, rgba(14, 14, 14, 0.35) 40%,
-    rgba(14, 14, 14, 0.62) 60%, rgba(14, 14, 14, 0.86) 80%, #0e0e0e 100%);
+.hero-media {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  /* de foto zelf wordt transparant naar onderen: geen rand, geen kleur om op af te stemmen */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0.1) 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,0.3) 72%, rgba(0,0,0,0.1) 88%, transparent 100%);
 }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.28; }
 .hero > .container { position: relative; z-index: 2; }
 .hero .tag { margin-bottom: 24px; }
 .hero-title {
