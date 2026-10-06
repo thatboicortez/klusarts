@@ -4,15 +4,15 @@
  */
 window.I18N = {
   nl: {
-    "meta.title.home": "[Bedrijfsnaam] — Allround klusbedrijf & bouwvakkers in Nederland",
+    "meta.title.home": "[Bedrijfsnaam] – Allround klusbedrijf & bouwvakkers in Nederland",
     "meta.description.home": "Twee allround handymen en bouwvakkers voor particulieren en bedrijven in Nederland. Gevel schilderen, sloopwerk, gevelisolatie, stukadoren, kozijnen, deuren en restauratie.",
-    "meta.title.diensten": "Onze diensten — [Bedrijfsnaam]",
+    "meta.title.diensten": "Onze diensten – [Bedrijfsnaam]",
     "meta.description.diensten": "Gevel schilderen, sloopwerk, gevelisolatie, gipsplaten, kozijnen, deuren, stukadoorswerk, loodgieterswerk en restauratie. Bekijk alle diensten van [Bedrijfsnaam].",
-    "meta.title.projecten": "Recente projecten — [Bedrijfsnaam]",
+    "meta.title.projecten": "Recente projecten – [Bedrijfsnaam]",
     "meta.description.projecten": "Een overzicht van recent afgerond werk: schilderwerk, renovatie, sloopwerk, gipsplaten, isolatie en restauratie door [Bedrijfsnaam].",
-    "meta.title.offerte": "Offerte aanvragen — [Bedrijfsnaam]",
+    "meta.title.offerte": "Offerte aanvragen – [Bedrijfsnaam]",
     "meta.description.offerte": "Vraag vrijblijvend een offerte aan bij [Bedrijfsnaam]. Vertel kort wat er moet gebeuren, wij nemen zo snel mogelijk contact met u op.",
-    "meta.title.404": "Pagina niet gevonden — [Bedrijfsnaam]",
+    "meta.title.404": "Pagina niet gevonden – [Bedrijfsnaam]",
     "meta.description.404": "Deze pagina bestaat niet (meer). Ga terug naar de homepage of bekijk onze diensten.",
 
     "nav.diensten": "Diensten",
@@ -198,15 +198,15 @@ window.I18N = {
   },
 
   en: {
-    "meta.title.home": "[Company Name] — Allround handymen & builders in the Netherlands",
+    "meta.title.home": "[Company Name] – Allround handymen & builders in the Netherlands",
     "meta.description.home": "Two allround handymen and builders for homeowners and businesses across the Netherlands. Facade painting, demolition, facade insulation, plastering, window frames, doors and restoration.",
-    "meta.title.diensten": "Our services — [Company Name]",
+    "meta.title.diensten": "Our services – [Company Name]",
     "meta.description.diensten": "Facade painting, demolition, facade insulation, drywall, window frames, doors, plastering, plumbing and restoration. View all services of [Company Name].",
-    "meta.title.projecten": "Recent projects — [Company Name]",
+    "meta.title.projecten": "Recent projects – [Company Name]",
     "meta.description.projecten": "An overview of recently completed work: painting, renovation, demolition, drywall, insulation and restoration by [Company Name].",
-    "meta.title.offerte": "Request a quote — [Company Name]",
+    "meta.title.offerte": "Request a quote – [Company Name]",
     "meta.description.offerte": "Request a free quote from [Company Name]. Tell us briefly what needs to happen, we'll get back to you as soon as possible.",
-    "meta.title.404": "Page not found — [Company Name]",
+    "meta.title.404": "Page not found – [Company Name]",
     "meta.description.404": "This page does not (or no longer) exist. Go back to the homepage or view our services.",
 
     "nav.diensten": "Services",
@@ -392,15 +392,15 @@ window.I18N = {
   },
 
   ru: {
-    "meta.title.home": "[Название компании] — универсальные мастера и строители в Нидерландах",
+    "meta.title.home": "[Название компании] – универсальные мастера и строители в Нидерландах",
     "meta.description.home": "Два универсальных мастера и строителя для частных клиентов и компаний в Нидерландах. Покраска фасадов, демонтаж, утепление фасадов, штукатурка, окна, двери и реставрация.",
-    "meta.title.diensten": "Наши услуги — [Название компании]",
+    "meta.title.diensten": "Наши услуги – [Название компании]",
     "meta.description.diensten": "Покраска фасадов, демонтаж, утепление фасадов, гипсокартон, окна, двери, штукатурка, сантехника и реставрация. Все услуги [Название компании].",
-    "meta.title.projecten": "Недавние проекты — [Название компании]",
+    "meta.title.projecten": "Недавние проекты – [Название компании]",
     "meta.description.projecten": "Обзор недавно завершённых работ: покраска, ремонт, демонтаж, гипсокартон, утепление и реставрация от [Название компании].",
-    "meta.title.offerte": "Заказать смету — [Название компании]",
+    "meta.title.offerte": "Заказать смету – [Название компании]",
     "meta.description.offerte": "Бесплатный расчёт стоимости от [Название компании]. Коротко опишите задачу, мы свяжемся с вами как можно скорее.",
-    "meta.title.404": "Страница не найдена — [Название компании]",
+    "meta.title.404": "Страница не найдена – [Название компании]",
     "meta.description.404": "Такой страницы не существует. Вернитесь на главную или посмотрите наши услуги.",
 
     "nav.diensten": "Услуги",
@@ -421,11 +421,11 @@ window.I18N = {
 
     "services.gevel-schilderen.title": "Покраска фасадов",
     "services.gevel-schilderen.desc": "Качественно окрашенные фасады, которые долго сохраняют вид и защищают здание от непогоды.",
-    "services.gevel-schilderen.long": "Хорошо окрашенный фасад — это не просто цвет, а первый защитный слой от дождя, влаги и солнца. Поверхность тщательно подготавливается, подбирается подходящая краска, а результат остаётся ровным и долговечным.",
+    "services.gevel-schilderen.long": "Хорошо окрашенный фасад – это не просто цвет, а первый защитный слой от дождя, влаги и солнца. Поверхность тщательно подготавливается, подбирается подходящая краска, а результат остаётся ровным и долговечным.",
 
     "services.sloopwerk.title": "Демонтажные работы",
     "services.sloopwerk.desc": "Аккуратный и безопасный демонтаж стен, полов и целых помещений с вывозом мусора.",
-    "services.sloopwerk.long": "Будь то демонтаж одной стены или всего интерьера — работы выполняются контролируемо, безопасно и с минимальными неудобствами. Строительный мусор сортируется и вывозится, помещение готово к следующему этапу.",
+    "services.sloopwerk.long": "Будь то демонтаж одной стены или всего интерьера – работы выполняются контролируемо, безопасно и с минимальными неудобствами. Строительный мусор сортируется и вывозится, помещение готово к следующему этапу.",
 
     "services.gevelisolatie.title": "Утепление фасадов",
     "services.gevelisolatie.desc": "Утепление, которое снижает расходы на отопление и делает дом комфортным круглый год.",
@@ -445,7 +445,7 @@ window.I18N = {
 
     "services.stukadoor.title": "Штукатурные работы",
     "services.stukadoor.desc": "Ровные стены и потолки как основа под покраску, обои или плитку.",
-    "services.stukadoor.long": "Ровный финишный слой — основа любого успешного ремонта. Стены и потолки штукатурятся гладко и ровно, готовые под покраску, обои или плитку.",
+    "services.stukadoor.long": "Ровный финишный слой – основа любого успешного ремонта. Стены и потолки штукатурятся гладко и ровно, готовые под покраску, обои или плитку.",
 
     "services.loodgieter.title": "Сантехнические работы",
     "services.loodgieter.desc": "Небольшие и средние сантехнические работы, выполненные аккуратно и по нормам.",
@@ -453,10 +453,10 @@ window.I18N = {
 
     "services.restauratie.title": "Реставрация и восстановление",
     "services.restauratie.desc": "Восстановление исторических деталей и полное обновление устаревших помещений.",
-    "services.restauratie.long": "Реставрация — это мастерство и терпение: оригинальные детали максимально сохраняются и восстанавливаются, а помещение при этом становится полностью функциональным и современным.",
+    "services.restauratie.long": "Реставрация – это мастерство и терпение: оригинальные детали максимально сохраняются и восстанавливаются, а помещение при этом становится полностью функциональным и современным.",
 
     "why.heading": "Почему выбирают нас",
-    "why.intro": "Никаких пустых обещаний — только аккуратный подход к работе, который виден в результате.",
+    "why.intro": "Никаких пустых обещаний – только аккуратный подход к работе, который виден в результате.",
     "why.image_alt": "Деталь завершённой работы",
     "why.1.title": "Аккуратность и чистота",
     "why.1.desc": "Каждая работа сдаётся в том виде, в котором вы хотели бы её видеть: чисто, ровно, без мусора после завершения.",
@@ -469,7 +469,7 @@ window.I18N = {
     "why.5.title": "Прозрачное общение",
     "why.5.desc": "Понятные объяснения до, во время и после работы, чтобы вы всегда были в курсе.",
     "why.6.title": "Частные и коммерческие заказы",
-    "why.6.desc": "Для гостиной в доме или объекта подрядчика — один и тот же внимательный подход.",
+    "why.6.desc": "Для гостиной в доме или объекта подрядчика – один и тот же внимательный подход.",
 
     "projects.heading": "Недавние проекты",
     "projects.intro": "Подборка завершённых работ.",
@@ -499,8 +499,8 @@ window.I18N = {
 
     "about.heading": "О нас",
     "about.intro": "Два независимых мастера, один надёжный адрес",
-    "about.p1": "Мы — два независимых мастера (оба самозанятые, zzp'ers), которые работают вместе под именем KlusArts Klusbedrijf.",
-    "about.p2": "Никаких меняющихся субподрядчиков и посредников: на каждом объекте лично работает один из нас — от первого разговора до сдачи работы.",
+    "about.p1": "Мы – два независимых мастера (оба самозанятые, zzp'ers), которые работают вместе под именем KlusArts Klusbedrijf.",
+    "about.p2": "Никаких меняющихся субподрядчиков и посредников: на каждом объекте лично работает один из нас – от первого разговора до сдачи работы.",
     "about.team_kvk": "KvK",
     "about.team_btw": "BTW",
     "about.fact_workarea": "Регион работы",
@@ -578,7 +578,7 @@ window.I18N = {
     "form.optional": "(необязательно)",
     "form.submit_wa": "Отправить в WhatsApp",
     "form.submit_mail": "Отправить по e-mail",
-    "form.send_note": "Есть фото объекта? Отправьте их в WhatsApp — так мы быстрее оценим работу. Сообщение подготовится в WhatsApp или в почтовой программе, отправить его нужно будет там.",
+    "form.send_note": "Есть фото объекта? Отправьте их в WhatsApp – так мы быстрее оценим работу. Сообщение подготовится в WhatsApp или в почтовой программе, отправить его нужно будет там.",
     "lightbox.open": "Увеличить фото",
     "lightbox.label": "Фото проектов",
     "footer.legal_heading": "Реквизиты",
