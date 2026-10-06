@@ -4,7 +4,7 @@
  */
 window.I18N = {
   nl: {
-    "meta.title.home": "[Bedrijfsnaam] – Allround klusbedrijf & bouwvakkers in Nederland",
+    "meta.title.home": "[Bedrijfsnaam]",
     "meta.description.home": "Twee allround handymen en bouwvakkers voor particulieren en bedrijven in Nederland. Gevel schilderen, sloopwerk, gevelisolatie, stukadoren, kozijnen, deuren en restauratie.",
     "meta.title.diensten": "Onze diensten – [Bedrijfsnaam]",
     "meta.description.diensten": "Gevel schilderen, sloopwerk, gevelisolatie, gipsplaten, kozijnen, deuren, stukadoorswerk, loodgieterswerk en restauratie. Bekijk alle diensten van [Bedrijfsnaam].",
@@ -198,7 +198,7 @@ window.I18N = {
   },
 
   en: {
-    "meta.title.home": "[Company Name] – Allround handymen & builders in the Netherlands",
+    "meta.title.home": "[Bedrijfsnaam]",
     "meta.description.home": "Two allround handymen and builders for homeowners and businesses across the Netherlands. Facade painting, demolition, facade insulation, plastering, window frames, doors and restoration.",
     "meta.title.diensten": "Our services – [Company Name]",
     "meta.description.diensten": "Facade painting, demolition, facade insulation, drywall, window frames, doors, plastering, plumbing and restoration. View all services of [Company Name].",
@@ -392,7 +392,7 @@ window.I18N = {
   },
 
   ru: {
-    "meta.title.home": "[Название компании] – универсальные мастера и строители в Нидерландах",
+    "meta.title.home": "[Bedrijfsnaam]",
     "meta.description.home": "Два универсальных мастера и строителя для частных клиентов и компаний в Нидерландах. Покраска фасадов, демонтаж, утепление фасадов, штукатурка, окна, двери и реставрация.",
     "meta.title.diensten": "Наши услуги – [Название компании]",
     "meta.description.diensten": "Покраска фасадов, демонтаж, утепление фасадов, гипсокартон, окна, двери, штукатурка, сантехника и реставрация. Все услуги [Название компании].",
