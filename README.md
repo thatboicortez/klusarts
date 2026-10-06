@@ -34,6 +34,8 @@ ease-out (`cubic-bezier(.16,1,.3,1)`), reveal bij scrollen en vloeiende paginawi
 css/fonts.css     Geist (variabel, 100–900), self-hosted; cyrillisch apart voor RU
 css/style.css     Alle stijlen (tokens bovenin :root)
 js/main.js        Taal, bedrijfsgegevens, menu, reveal, galerij + lightbox, formulier
+js/cube.js        3D-kubus op de homepage (Three.js uit js/vendor/three, model in models/), 1-op-1 van theskill.live;
+                  laadt pas na het tekenen van de pagina, pauzeert buiten beeld
 js/i18n.js        Vertalingen NL / EN / RU
 js/business-config.js   Bedrijfsgegevens op één plek
 ```

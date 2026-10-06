@@ -274,6 +274,7 @@ p { text-wrap: pretty; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
+  overflow: hidden; /* de kubus mag niet breder zijn dan het scherm */
   display: flex; flex-direction: column; justify-content: center;
   /* svh: de kleine viewport blijft gelijk als de adresbalk op een telefoon in- en uitschuift,
      zodat de achtergrondfoto niet mee-zoomt tijdens het scrollen */
@@ -281,6 +282,9 @@ p { text-wrap: pretty; }
   min-height: calc(100svh - var(--header-h));
   padding: clamp(48px, 6vw, 80px) 0;
   text-align: center;
+}
+@supports (overflow-x: clip) {
+  .hero { overflow: visible; overflow-x: clip; } /* verticaal blijft het uitlopen van de foto zichtbaar */
 }
 .hero::before { content: ""; position: absolute; pointer-events: none; z-index: 1; }
 .hero::before { /* zachte gloed bovenin */
@@ -296,6 +300,18 @@ p { text-wrap: pretty; }
 .hero-media picture { display: block; height: 100%; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
 .hero > .container { position: relative; z-index: 2; }
+/* 3D-kubus (maten en dekking van theskill.live) */
+.rubik-bg {
+  position: absolute; left: 50%; top: 50%; z-index: 1;
+  width: 1100px; height: 1100px;
+  transform: translate(-50%, -50%);
+  pointer-events: none; opacity: 0.94;
+}
+.rubik-scene { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.rubik-cube { position: relative; width: 700px; height: 700px; }
+.rubik-canvas { display: block; width: 100%; height: 100%; opacity: 0; transition: opacity 0.2s ease; }
+.rubik-canvas.is-ready { opacity: 1; }
+
 .hero .tag { margin-bottom: 24px; }
 .hero-title {
   max-width: 14ch; margin-inline: auto;
@@ -608,6 +624,11 @@ a.contact-card:hover { background: #181818; border-color: var(--border-2); trans
   .footer-brand { grid-column: 1 / -1; }
 }
 
+@media (max-width: 1200px) {
+  .rubik-bg { width: 880px; height: 880px; opacity: 0.85; }
+  .rubik-cube { width: 550px; height: 550px; }
+}
+
 @media (max-width: 900px) {
   :root { --header-h: 64px; }
   .nav, .header-actions .lang, .header-actions .btn { display: none; }
@@ -629,6 +650,8 @@ a.contact-card:hover { background: #181818; border-color: var(--border-2); trans
   .section-foot { margin-top: 28px; }
   .section-sub { font-size: 14px; line-height: 1.45; }
   .hero { min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h)); }
+  .rubik-bg { width: 600px; height: 600px; opacity: 0.8; }
+  .rubik-cube { width: 380px; height: 380px; }
   /* knoppen zoals op theskill.live: smal, gecentreerd, onder elkaar */
   .hero-actions { flex-direction: column; align-items: center; gap: 8px; }
   .hero-actions .btn { width: auto; min-width: 200px; min-height: 40px; padding: 0 20px; border-radius: 10px; font-size: 13px; font-weight: 600; }
