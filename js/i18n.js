@@ -22,7 +22,7 @@ window.I18N = {
     "nav.open": "Menu openen",
     "nav.close": "Menu sluiten",
 
-    "hero.title": "Vakwerk voor elke klus.",
+    "hero.title": "Vakwerk voor elke klus",
     "hero.subtitle": "Twee zelfstandige vakmensen voor renovatie, schilderwerk, isolatie, stucwerk en sloop. Voor particulieren en bedrijven in Zeeland en omstreken.",
     "hero.cta_primary": "Offerte aanvragen",
     "hero.cta_secondary": "Bekijk onze diensten",
@@ -216,7 +216,7 @@ window.I18N = {
     "nav.open": "Open menu",
     "nav.close": "Close menu",
 
-    "hero.title": "Skilled work for every job.",
+    "hero.title": "Skilled work for every job",
     "hero.subtitle": "Two independent tradespeople for renovation, painting, insulation, plastering and demolition. For homeowners and businesses in Zeeland and the surrounding area.",
     "hero.cta_primary": "Request a quote",
     "hero.cta_secondary": "View our services",
@@ -410,7 +410,7 @@ window.I18N = {
     "nav.open": "Открыть меню",
     "nav.close": "Закрыть меню",
 
-    "hero.title": "Качественная работа для любой задачи.",
+    "hero.title": "Качественная работа для любой задачи",
     "hero.subtitle": "Два самостоятельных мастера: ремонт и реставрация, покраска, утепление, штукатурка и демонтаж. Для частных клиентов и компаний в Зеландии и окрестностях.",
     "hero.cta_primary": "Заказать смету",
     "hero.cta_secondary": "Смотреть услуги",
