@@ -277,9 +277,9 @@ p { text-wrap: pretty; }
   display: flex; flex-direction: column; justify-content: center;
   /* svh: de kleine viewport blijft gelijk als de adresbalk op een telefoon in- en uitschuift,
      zodat de achtergrondfoto niet mee-zoomt tijdens het scrollen */
-  min-height: min(780px, calc(100vh - var(--header-h)));
-  min-height: min(780px, calc(100svh - var(--header-h)));
-  padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 6vw, 72px);
+  min-height: calc(100vh - var(--header-h));
+  min-height: calc(100svh - var(--header-h));
+  padding: clamp(48px, 6vw, 80px) 0;
   text-align: center;
 }
 .hero::before { content: ""; position: absolute; pointer-events: none; z-index: 1; }
