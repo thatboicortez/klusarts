@@ -275,7 +275,10 @@ p { text-wrap: pretty; }
 .hero {
   position: relative;
   display: flex; flex-direction: column; justify-content: center;
-  min-height: min(780px, calc(100dvh - var(--header-h)));
+  /* svh: de kleine viewport blijft gelijk als de adresbalk op een telefoon in- en uitschuift,
+     zodat de achtergrondfoto niet mee-zoomt tijdens het scrollen */
+  min-height: min(780px, calc(100vh - var(--header-h)));
+  min-height: min(780px, calc(100svh - var(--header-h)));
   padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 6vw, 72px);
   text-align: center;
 }
@@ -624,7 +627,7 @@ a.contact-card:hover { background: #181818; border-color: var(--border-2); trans
   body { font-size: 15px; }
   .section-foot { margin-top: 28px; }
   .section-sub { font-size: 14px; line-height: 1.45; }
-  .hero { min-height: calc(100dvh - var(--header-h)); }
+  .hero { min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h)); }
   .hero-actions { flex-direction: column; align-items: stretch; max-width: 320px; margin-inline: auto; }
   .hero-actions .btn { min-height: 48px; }
 
