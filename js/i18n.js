@@ -12,7 +12,7 @@ window.I18N = {
     "meta.description.projecten": "Een overzicht van recent afgerond werk: schilderwerk, renovatie, sloopwerk, gipsplaten, isolatie en restauratie door [Bedrijfsnaam].",
     "meta.title.offerte": "Contact | KlusArts",
     "meta.description.offerte": "Vraag vrijblijvend een offerte aan bij [Bedrijfsnaam]. Vertel kort wat er moet gebeuren, wij nemen zo snel mogelijk contact met u op.",
-    "meta.title.404": "Pagina niet gevonden – [Bedrijfsnaam]",
+    "meta.title.404": "404 | KlusArts",
     "meta.description.404": "Deze pagina bestaat niet (meer). Ga terug naar de homepage of bekijk onze diensten.",
 
     "nav.diensten": "Diensten",
@@ -206,7 +206,7 @@ window.I18N = {
     "meta.description.projecten": "An overview of recently completed work: painting, renovation, demolition, drywall, insulation and restoration by [Company Name].",
     "meta.title.offerte": "Contact | KlusArts",
     "meta.description.offerte": "Request a free quote from [Company Name]. Tell us briefly what needs to happen, we'll get back to you as soon as possible.",
-    "meta.title.404": "Page not found – [Company Name]",
+    "meta.title.404": "404 | KlusArts",
     "meta.description.404": "This page does not (or no longer) exist. Go back to the homepage or view our services.",
 
     "nav.diensten": "Services",
@@ -400,7 +400,7 @@ window.I18N = {
     "meta.description.projecten": "Обзор недавно завершённых работ: покраска, ремонт, демонтаж, гипсокартон, утепление и реставрация от [Название компании].",
     "meta.title.offerte": "Контакты | KlusArts",
     "meta.description.offerte": "Бесплатный расчёт стоимости от [Название компании]. Коротко опишите задачу, мы свяжемся с вами как можно скорее.",
-    "meta.title.404": "Страница не найдена – [Название компании]",
+    "meta.title.404": "404 | KlusArts",
     "meta.description.404": "Такой страницы не существует. Вернитесь на главную или посмотрите наши услуги.",
 
     "nav.diensten": "Услуги",
