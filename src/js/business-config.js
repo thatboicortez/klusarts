@@ -33,6 +33,9 @@ window.BUSINESS = {
   team2Kvk: "42169777",
   team2Btw: "NL005552982B60",
 
+  // Links naar uw profielen elders (komen in de structured data als sameAs; laat leeg als u ze niet heeft)
+  googleProfile: "https://share.google/nxvvgXFBwXfmtDwpk",
+
   workArea: "Zeeland",
   regions: ["Middelburg", "Vlissingen", "Goes", "Terneuzen", "Zierikzee", "Hulst"],
 

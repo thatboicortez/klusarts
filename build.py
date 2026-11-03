@@ -292,6 +292,9 @@ def business_node(lang):
             {"@type": "PropertyValue", "name": "KvK", "value": BUSINESS.get("team2Kvk", "")},
         ],
     }
+    same_as = [BUSINESS[k] for k in ("googleProfile",) if BUSINESS.get(k)]
+    if same_as:
+        node["sameAs"] = same_as
     return node
 
 
