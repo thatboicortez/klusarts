@@ -4,3 +4,6 @@ logo.png
 
 # Minifiers voor build.py (npm install in tools/)
 tools/node_modules/
+
+# Lokale tool-instellingen
+.claude/
