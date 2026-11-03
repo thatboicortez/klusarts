@@ -1,7 +1,7 @@
 # KlusArts Klusbedrijf — website
 
 Statische website (geen build-tools) voor twee zelfstandige vakmensen die samen
-onder één handelsnaam werken. NL is de hoofdtaal, met een taalwisselaar voor EN.
+onder één handelsnaam werken. NL is de hoofdtaal; er is ook een volledige Engelse versie onder `/en/` (eigen adressen, zodat Google ze ook indexeert).
 Gehost op GitHub Pages (`klusarts.nl`).
 
 ## Pagina's
@@ -12,6 +12,7 @@ Gehost op GitHub Pages (`klusarts.nl`).
 | `/diensten/` | Alle 9 diensten met foto + "Waarom kiezen voor ons" |
 | `/projecten/` | Galerij met filters en lightbox (voor/na-paren) |
 | `/offerte/` | Contactgegevens + offerteformulier (verstuurt via WhatsApp of e-mail) |
+| `/en/...` | Engelse versie van de vier pagina's hierboven (gegenereerd) |
 | `404.html` | Pagina niet gevonden |
 
 ## Lokaal bekijken
@@ -58,12 +59,32 @@ btw-identificatienummer.
 CSS/JS worden geladen met `?v=NN`. Pas je een van die bestanden aan, verhoog dan het
 nummer in alle 5 HTML-bestanden, anders blijft de browser de oude versie tonen.
 
-## Teksten en talen
+## Talen en bouwen (belangrijk)
 
-Vertalingen staan in `js/i18n.js` (blokken `nl` en `en`; per taal dezelfde sleutels).
-In de HTML staat de NL-tekst als fallback; `data-i18n="sleutel"` vervangt die door de
-gekozen taal. Zet een `*`-teken of andere vaste tekst **buiten** het element met `data-i18n`,
-anders wordt het bij een taalwissel overschreven.
+De **Nederlandse pagina's zijn de bron** en worden met de hand bewerkt
+(`index.html`, `diensten/`, `projecten/`, `offerte/`, `404.html`). De Engelse pagina's in
+`en/` worden daaruit **gegenereerd** met:
+
+```bash
+python build.py
+```
+
+Draai dit na elke wijziging in een Nederlandse pagina of in `js/i18n.js`, en commit ook de `en/`-bestanden.
+Bewerk `en/**` nooit met de hand: de volgende build overschrijft het.
+
+Het script:
+* haalt Engelse teksten uit `js/i18n.js` (blok `en`) en foto-beschrijvingen uit `content/alt-en.json`
+  (nieuwe foto in de galerij? voeg zijn Nederlandse `alt` met de Engelse vertaling toe aan dat bestand);
+* zet `<html lang>`, titel, description, Open Graph, canonical en `hreflang` goed;
+* herschrijft interne links naar `/en/...`;
+* onderhoudt de NL/EN-taalwisselaar en het hreflang-blok in de Nederlandse pagina's;
+* schrijft `sitemap.xml` (beide talen met hreflang).
+
+Een nieuwe pagina toevoegen: maak de Nederlandse pagina en voeg haar toe aan `PAGES` bovenin `build.py`.
+De 404-pagina is één bestand voor beide talen: onder `/en/...` kiest `js/main.js` zelf het Engels.
+
+In `js/i18n.js` staat per taal (`nl`, `en`) dezelfde set sleutels. In de HTML staat de NL-tekst met
+`data-i18n="sleutel"`. Zet een `*`-teken of andere vaste tekst **buiten** het element met `data-i18n`.
 
 ## Foto's
 

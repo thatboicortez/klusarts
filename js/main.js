@@ -3,18 +3,13 @@
 
   var BUSINESS = window.BUSINESS || {};
   var I18N = window.I18N || { nl: {} };
-  var LANG_KEY = "zzp-lang";
   var doc = document.documentElement;
 
-  function store(key, value) {
-    try {
-      if (value === undefined) return localStorage.getItem(key);
-      localStorage.setItem(key, value);
-    } catch (e) { /* privémodus / geblokkeerde opslag: gewoon doorgaan */ }
-    return null;
-  }
-
-  var currentLang = store(LANG_KEY) || "nl";
+  /* De taal volgt de pagina: /en/... is Engels, de rest Nederlands (<html lang> staat in de HTML).
+     Alleen de 404-pagina is één bestand en kijkt daarom naar het pad. */
+  var isEnPath = location.pathname.indexOf("/en/") === 0 || location.pathname === "/en";
+  var currentLang = document.documentElement.getAttribute("lang") || "nl";
+  if (document.body.getAttribute("data-page") === "404" && isEnPath) currentLang = "en";
   if (!I18N[currentLang]) currentLang = "nl";
 
   /* ------------------------------------------------------------------ */
@@ -126,24 +121,31 @@
     document.querySelectorAll("[data-i18n-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria"))); });
     document.querySelectorAll("[data-i18n-alt]").forEach(function (el) { el.setAttribute("alt", t(el.getAttribute("data-i18n-alt"))); });
 
-    document.querySelectorAll(".lang button").forEach(function (btn) {
-      var active = btn.getAttribute("data-lang") === currentLang;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-pressed", String(active));
+    document.querySelectorAll(".lang a").forEach(function (a) {
+      var active = a.getAttribute("data-lang") === currentLang;
+      a.classList.toggle("is-active", active);
+      if (active) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
     });
   }
 
-  function setLang(lang) {
-    if (!I18N[lang] || lang === currentLang) return;
-    currentLang = lang;
-    store(LANG_KEY, lang);
-    applyI18n();
-    document.dispatchEvent(new CustomEvent("langchange"));
+  /* 404-pagina in het Engels: interne links horen dan ook onder /en/ */
+  function prefixLinksForEnglish() {
+    document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (a.hasAttribute("data-lang") || /^\/(en\/|css\/|js\/|images\/|fonts\/|models\/)/.test(h) || /\.[a-z0-9]+$/i.test(h)) return;
+      a.setAttribute("href", "/en" + h);
+    });
   }
 
+  /* Taalwissel: zelfde pagina in de andere taal, mét gekozen filter (#...) of ?klus=... */
   document.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-lang]");
-    if (btn) setLang(btn.getAttribute("data-lang"));
+    var a = e.target.closest(".lang a");
+    if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    if (document.body.getAttribute("data-page") === "404") return;
+    if (location.search || location.hash) {
+      e.preventDefault();
+      location.href = a.getAttribute("href") + location.search + location.hash;
+    }
   });
 
   function markActiveNav() {
@@ -180,9 +182,6 @@
     menu.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
     window.matchMedia("(min-width: 901px)").addEventListener("change", function (m) { if (m.matches) setOpen(false); });
-    document.addEventListener("langchange", function () {
-      toggle.setAttribute("aria-label", t(isOpen ? "nav.close" : "nav.open"));
-    });
   }
 
   /* ------------------------------------------------------------------ */
@@ -537,6 +536,7 @@
   /* ------------------------------------------------------------------ */
   applyBusiness();
   applyI18n();
+  if (currentLang === "en" && document.body.getAttribute("data-page") === "404") prefixLinksForEnglish();
   markActiveNav();
   initMobileMenu();
   initGallery();

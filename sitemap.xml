@@ -1,22 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://klusarts.nl/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/diensten/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/projecten/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/projecten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/projecten/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/projecten/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/projecten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/projecten/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/offerte/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/offerte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/offerte/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/offerte/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/offerte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/offerte/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
