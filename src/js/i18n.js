@@ -5,7 +5,7 @@
 window.I18N = {
   nl: {
     "meta.title.home": "[Bedrijfsnaam]",
-    "meta.description.home": "Twee allround handymen en bouwvakkers voor particulieren en bedrijven in Nederland. Gevel schilderen, sloopwerk, gevelisolatie, stukadoren, kozijnen, deuren en restauratie.",
+    "meta.description.home": "Twee allround handymen en bouwvakkers voor particulieren en bedrijven in Zeeland. Renovatie, schilderwerk, isolatie, stucwerk, kozijnen en sloopwerk.",
     "meta.title.diensten": "Diensten | KlusArts",
     "meta.description.diensten": "Gevel schilderen, sloopwerk, gevelisolatie, gipsplaten, kozijnen, deuren, stukadoorswerk, loodgieterswerk en restauratie. Bekijk alle diensten van [Bedrijfsnaam].",
     "meta.title.projecten": "Projecten | KlusArts",
@@ -198,7 +198,7 @@ window.I18N = {
 
   en: {
     "meta.title.home": "[Bedrijfsnaam]",
-    "meta.description.home": "Two allround handymen and builders for homeowners and businesses across the Netherlands. Facade painting, demolition, facade insulation, plastering, window frames, doors and restoration.",
+    "meta.description.home": "Two allround handymen and builders for homeowners and businesses in Zeeland. Renovation, painting, insulation, plastering, window frames and demolition.",
     "meta.title.diensten": "Services | KlusArts",
     "meta.description.diensten": "Facade painting, demolition, facade insulation, drywall, window frames, doors, plastering, plumbing and restoration. View all services of [Company Name].",
     "meta.title.projecten": "Projects | KlusArts",
