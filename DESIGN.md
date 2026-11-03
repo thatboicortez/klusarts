@@ -27,7 +27,7 @@ Geen decoratieve kleur. Kleur in de foto's draagt de pagina.
 
 ## Type
 
-Eén familie: **Geist** (variabel 100–900, self-hosted, latin + latin-ext + cyrillic).
+Eén familie: **Geist** (variabel 100–900, self-hosted, latin + latin-ext).
 Hiërarchie door maat, gewicht en letterspatiëring:
 
 * Display `clamp(36px, 7.2vw, 72px)` / 700 / -0.04em (hero), `clamp(32px, 6vw, 64px)` (paginatitels)
