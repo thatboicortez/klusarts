@@ -32,58 +32,68 @@ ease-out (`cubic-bezier(.16,1,.3,1)`), reveal bij scrollen en vloeiende paginawi
 (`@view-transition`). Zie [DESIGN.md](DESIGN.md).
 
 ```
-css/fonts.css     Geist (variabel, 100–900), self-hosted (latin + latin-ext)
-css/style.css     Alle stijlen (tokens bovenin :root)
-js/main.js        Taal, bedrijfsgegevens, menu, reveal, galerij + lightbox, formulier
-js/cube.js        3D-kubus op de homepage (Three.js uit js/vendor/three, model in models/), 1-op-1 van theskill.live;
+src/css/fonts.css Geist (variabel, 100–900), self-hosted (latin + latin-ext)
+src/css/style.css Alle stijlen (tokens bovenin :root)
+src/js/main.js    Taal, bedrijfsgegevens, menu, reveal, galerij + lightbox, formulier
+src/js/cube.js    3D-kubus op de homepage (Three.js uit js/vendor/three, model in models/), 1-op-1 van theskill.live;
                   laadt pas na het tekenen van de pagina, pauzeert buiten beeld
-js/i18n.js        Vertalingen NL / EN
-js/business-config.js   Bedrijfsgegevens op één plek
+src/js/i18n.js    Vertalingen NL / EN
+src/js/business-config.js   Bedrijfsgegevens op één plek
 ```
 
 ## Bedrijfsgegevens
 
-Alles staat in **[js/business-config.js](js/business-config.js)**: naam, telefoon,
+Alles staat in **`src/js/business-config.js`**: naam, telefoon,
 WhatsApp, e-mail, KvK/BTW van beide vennoten, werkgebied en regio's. Dit wordt overal op de
 site ingevuld (header, footer, over ons, formulier).
 
-Apart bijwerken (zelfde gegevens): het JSON-LD-blok in `index.html` (structured data voor
+Apart bijwerken (zelfde gegevens): het JSON-LD-blok in `src/index.html` (structured data voor
 Google) en de `<title>`/`<meta>`-tags in de `<head>` van elke pagina (crawlers zonder
 JavaScript zien deze statische tekst).
 
 Publiceer nooit het omzetbelastingnummer (gekoppeld aan het BSN) — alleen het
 btw-identificatienummer.
 
-## Cache
 
-CSS/JS worden geladen met `?v=NN`. Pas je een van die bestanden aan, verhoog dan het
-nummer in alle 5 HTML-bestanden, anders blijft de browser de oude versie tonen.
+## Bouwen: bron in `src/`, uitvoer in de root (belangrijk)
 
-## Talen en bouwen (belangrijk)
+Wat je **bewerkt** staat in `src/` (leesbaar):
 
-De **Nederlandse pagina's zijn de bron** en worden met de hand bewerkt
-(`index.html`, `diensten/`, `projecten/`, `offerte/`, `404.html`). De Engelse pagina's in
-`en/` worden daaruit **gegenereerd** met:
+```
+src/index.html, src/diensten/, src/projecten/, src/offerte/, src/404.html   Nederlandse pagina's
+src/css/*.css, src/js/*.js                                                   stijlen en scripts
+content/alt-en.json                                                          Engelse foto-beschrijvingen
+```
+
+Daarna draai je:
 
 ```bash
 python build.py
 ```
 
-Draai dit na elke wijziging in een Nederlandse pagina of in `js/i18n.js`, en commit ook de `en/`-bestanden.
-Bewerk `en/**` nooit met de hand: de volgende build overschrijft het.
+Dat maakt de **uitvoer** in de root: `index.html`, `diensten/`, `projecten/`, `offerte/`, `404.html`,
+`css/`, `js/`, `en/**` en `sitemap.xml`. Alles is geminificeerd (HTML, CSS en JS op één regel, met korte
+variabelnamen), zodat Ctrl+U geen leesbare kopie van de code geeft. Die uitvoer commit je ook; bewerk
+hem nooit met de hand, de volgende build overschrijft hem. Eenmalig nodig: `cd tools && npm install`.
+
+`_config.yml` zorgt dat GitHub Pages `src/`, `tools/`, `content/` en `build.py` niet publiceert.
+Let op: de repo zelf is openbaar op GitHub, dus de bron is daar wel te lezen. Wil je dat ook niet:
+maak de repository privé (GitHub Pages werkt dan alleen met een betaald plan).
 
 Het script:
-* haalt Engelse teksten uit `js/i18n.js` (blok `en`) en foto-beschrijvingen uit `content/alt-en.json`
+* haalt Engelse teksten uit `src/js/i18n.js` (blok `en`) en foto-beschrijvingen uit `content/alt-en.json`
   (nieuwe foto in de galerij? voeg zijn Nederlandse `alt` met de Engelse vertaling toe aan dat bestand);
-* zet `<html lang>`, titel, description, Open Graph, canonical en `hreflang` goed;
-* herschrijft interne links naar `/en/...`;
-* onderhoudt de NL/EN-taalwisselaar en het hreflang-blok in de Nederlandse pagina's;
+* zet `<html lang>`, titel, description, Open Graph, canonical en `hreflang` goed en herschrijft links naar `/en/...`;
+* onderhoudt de NL/EN-taalwisselaar en het hreflang-blok in de Nederlandse bronpagina's;
+* minificeert en zet achter css/js automatisch `?v=<hash>` (cache-versie uit de inhoud, niet meer handmatig);
 * schrijft `sitemap.xml` (beide talen met hreflang).
 
-Een nieuwe pagina toevoegen: maak de Nederlandse pagina en voeg haar toe aan `PAGES` bovenin `build.py`.
-De 404-pagina is één bestand voor beide talen: onder `/en/...` kiest `js/main.js` zelf het Engels.
+Een nieuwe pagina toevoegen: maak de Nederlandse pagina in `src/` en voeg haar toe aan `PAGES` bovenin `build.py`.
+De 404-pagina is één bestand voor beide talen: onder `/en/...` kiest `src/js/main.js` zelf het Engels.
 
-In `js/i18n.js` staat per taal (`nl`, `en`) dezelfde set sleutels. In de HTML staat de NL-tekst met
+Lokaal bekijken: eerst `python build.py`, dan `python serve.py`.
+
+In `src/js/i18n.js` staat per taal (`nl`, `en`) dezelfde set sleutels. In de HTML staat de NL-tekst met
 `data-i18n="sleutel"`. Zet een `*`-teken of andere vaste tekst **buiten** het element met `data-i18n`.
 
 ## Foto's

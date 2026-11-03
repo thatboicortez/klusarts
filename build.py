@@ -1,36 +1,50 @@
 #!/usr/bin/env python3
 """
-Bouwt de Engelse pagina's (/en/...) uit de Nederlandse pagina's.
+Bouwt de site: Engelse pagina's + geminificeerde bestanden.
 
-De NEDERLANDSE bestanden zijn de bron en worden met de hand bewerkt:
-    index.html, diensten/index.html, projecten/index.html, offerte/index.html, 404.html
-De Engelse pagina's (en/**) worden hier uit gemaakt - bewerk die NIET met de hand.
+BRON (met de hand bewerken, leesbaar):
+    src/index.html, src/diensten/, src/projecten/, src/offerte/, src/404.html   (Nederlandse pagina's)
+    src/css/*.css, src/js/*.js                                                   (stijlen en scripts)
+    js/vendor/three, models/, images/, fonts/                                    (staan al op de juiste plek)
+UITVOER (wordt hier gegenereerd en gecommit - NIET met de hand bewerken):
+    index.html, diensten/, projecten/, offerte/, 404.html, en/**, css/*.css, js/*.js, sitemap.xml
+    Alles is geminificeerd (HTML, CSS, JS), zodat Ctrl+U geen leesbare kopie van de code oplevert.
+    De versie-aanduiding ?v=<hash> achter css/js wordt automatisch uit de inhoud berekend.
 
 Wat dit script doet
-  * Engelse teksten komen uit js/i18n.js (blok `en`); foto-beschrijvingen (alt) uit content/alt-en.json
+  * Engelse teksten komen uit src/js/i18n.js (blok `en`); foto-beschrijvingen (alt) uit content/alt-en.json
   * zet <html lang>, <title>, meta description, Open Graph, canonical en hreflang goed
   * herschrijft interne links naar /en/...
-  * onderhoudt de taalwisselaar (NL | EN) en het hreflang-blok in de Nederlandse pagina's
+  * onderhoudt de taalwisselaar (NL | EN) en het hreflang-blok in de Nederlandse bronpagina's
+  * minificeert alles via tools/minify.mjs (Node; eenmalig `npm install` in de map tools/)
   * schrijft sitemap.xml met beide talen
 
-Gebruik:  python build.py     (draai dit na elke wijziging in een Nederlandse pagina of in i18n.js)
+Gebruik:  python build.py     (na ELKE wijziging in src/ of content/)
 """
+import hashlib
 import html
 import json
 import os
 import re
+import shutil
+import subprocess
+import sys
+import tempfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = "https://klusarts.nl"
 NAME = "KlusArts Klusbedrijf"
 
-# pad (zonder /en) -> (bronbestand, data-page, changefreq, priority)
+# pad (zonder /en) -> (bestand relatief aan src/ en aan de uitvoer, data-page, changefreq, priority)
 PAGES = [
     ("/", "index.html", "home", "monthly", "1.0"),
     ("/diensten/", "diensten/index.html", "diensten", "monthly", "0.9"),
     ("/projecten/", "projecten/index.html", "projecten", "weekly", "0.9"),
     ("/offerte/", "offerte/index.html", "offerte", "monthly", "0.9"),
 ]
+
+# Scripts en stijlen die geminificeerd worden: bron (src/...) -> uitvoer (zelfde pad in de root)
+ASSETS = ["css/fonts.css", "css/style.css", "js/business-config.js", "js/i18n.js", "js/main.js", "js/cube.js"]
 
 ARIA_EN = {
     "Hoofdnavigatie": "Main navigation",
@@ -39,6 +53,9 @@ ARIA_EN = {
     "Filter projecten": "Filter projects",
     "Projectfoto's": "Project photos",
 }
+
+
+SRC = "src"
 
 
 def read(rel):
@@ -55,7 +72,7 @@ def write(rel, text):
 
 def load_i18n():
     """Leest de blokken nl/en uit js/i18n.js (regels van de vorm  "sleutel": "tekst",)."""
-    src = read("js/i18n.js")
+    src = read("src/js/i18n.js")
     out = {}
     blocks = list(re.finditer(r"^  (nl|en): \{$", src, re.M))
     for i, m in enumerate(blocks):
@@ -228,19 +245,66 @@ def sitemap():
     return "\n".join(lines) + "\n"
 
 
+def sha8(path):
+    with open(path, "rb") as f:
+        return hashlib.sha1(f.read()).hexdigest()[:8]
+
+
+def run_minify(jobs):
+    tools = os.path.join(ROOT, "tools")
+    if not os.path.isdir(os.path.join(tools, "node_modules")):
+        raise SystemExit("Eenmalig nodig: cd tools && npm install   (daarna opnieuw python build.py)")
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+        json.dump(jobs, f)
+        manifest = f.name
+    try:
+        r = subprocess.run(["node", os.path.join(tools, "minify.mjs"), manifest], cwd=tools, capture_output=True, text=True, encoding="utf-8")
+        if r.returncode != 0:
+            raise SystemExit("Minificeren mislukt:\n" + r.stdout + r.stderr)
+    finally:
+        os.unlink(manifest)
+
+
 def main():
-    for nl_path, src, page, _, _ in PAGES:
-        nl_text = sync_dutch_page(src, nl_path, read(src))
-        write(src, nl_text)
-        en_rel = ("en/" + src)
-        write(en_rel, build_english(nl_text, nl_path, page))
-        print("ok", src, "->", en_rel)
-    # 404: één bestand voor beide talen (taal volgt het pad, zie js/main.js)
-    nf = read("404.html")
-    nf = LANG_RE.sub(lambda m: lang_switch(m.group(1) or "", "/", "nl", "Taal").replace('href="/en/"', 'href="/en/"'), nf)
-    write("404.html", nf)
+    # 1. bronpagina's bijwerken (wisselaar, hreflang) en Engelse varianten maken
+    pages = {}  # uitvoerpad -> html (nog niet geminificeerd)
+    for nl_path, rel, page, _, _ in PAGES:
+        nl_text = sync_dutch_page(rel, nl_path, read(f"{SRC}/{rel}"))
+        write(f"{SRC}/{rel}", nl_text)
+        pages[rel] = nl_text
+        pages["en/" + rel] = build_english(nl_text, nl_path, page)
+    nf = read(f"{SRC}/404.html")
+    nf = LANG_RE.sub(lambda m: lang_switch(m.group(1) or "", "/", "nl", "Taal"), nf)
+    write(f"{SRC}/404.html", nf)
+    pages["404.html"] = nf
+
+    # 2. css/js minificeren en een inhoudshash als versie bepalen
+    run_minify([{"type": "css" if a.endswith(".css") else "js", "in": os.path.join(ROOT, SRC, a), "out": os.path.join(ROOT, a)} for a in ASSETS])
+    version = {"/" + a: sha8(os.path.join(ROOT, a)) for a in ASSETS}
+
+    def stamp(text):
+        def sub(m):
+            url = m.group(2)
+            return f'{m.group(1)}{url}?v={version[url]}"' if url in version else m.group(0)
+        return re.sub(r'((?:href|src)=")(/(?:css|js)/[\w.-]+)(?:\?v=\w+)?"', sub, text)
+
+    # 3. pagina's minificeren
+    tmp = tempfile.mkdtemp(prefix="klusarts-")
+    jobs = []
+    try:
+        for out_rel, text in pages.items():
+            tmp_file = os.path.join(tmp, out_rel.replace("/", "__"))
+            with open(tmp_file, "w", encoding="utf-8", newline="\n") as f:
+                f.write(stamp(text))
+            jobs.append({"type": "html", "in": tmp_file, "out": os.path.join(ROOT, out_rel)})
+        run_minify(jobs)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
     write("sitemap.xml", sitemap())
-    print("ok sitemap.xml")
+    for out_rel in pages:
+        print("ok", out_rel)
+    print("ok css/js (versie-hash:", ", ".join(f"{k.split('/')[-1]}={v}" for k, v in version.items()) + ")")
 
 
 if __name__ == "__main__":

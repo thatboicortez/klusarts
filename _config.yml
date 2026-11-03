@@ -1,0 +1,12 @@
+# GitHub Pages (Jekyll) publiceert alleen de gebouwde, geminificeerde bestanden.
+# De leesbare bron en de bouwhulpmiddelen horen NIET op de live site te staan.
+exclude:
+  - src
+  - tools
+  - content
+  - build.py
+  - serve.py
+  - README.md
+  - DESIGN.md
+  - PRODUCT.md
+  - node_modules
