@@ -149,3 +149,7 @@ mee, daarom staat er een hint om ze via WhatsApp te sturen. De diensten linken n
 `images/logo-nav.png` (header/footer), `images/logo-master.png` (hoge resolutie),
 `favicon.ico`, `images/favicon-*.png`, `apple-touch-icon.png`, `images/icon-512.png`,
 `images/og-cover.jpg` (voorbeeldplaatje bij delen op WhatsApp/social, 1200×630).
+
+## Google Search Console
+
+`google13e23eb162e0ddbc.html` in de hoofdmap is het verificatiebestand van Search Console: laat het staan (anders raakt de site ontkoppeld).
