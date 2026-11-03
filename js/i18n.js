@@ -110,13 +110,12 @@ window.I18N = {
     "process.4.desc": "Samen bekijken we het resultaat, zodat u tevreden achterblijft met een afgewerkte klus.",
 
     "about.heading": "Over ons",
-    "about.intro": "Twee zelfstandige vakmensen, één vertrouwd adres",
-    "about.p1": "Wij zijn twee zelfstandige vakmensen (allebei zzp'er) die samen onder de naam KlusArts Klusbedrijf werken.",
-    "about.p2": "Geen wisselende onderaannemers en geen tussenlagen: op elke klus staat een van ons persoonlijk, van de eerste kennismaking tot de oplevering.",
+    "about.intro": "Vakmanschap met een persoonlijke aanpak",
+    "about.p1": "KlusArts Klusbedrijf is de samenwerking van twee zelfstandige vakmensen. Wij verzorgen renovatie-, afbouw- en schilderwerk voor particulieren en bedrijven in Zeeland en omstreken.",
+    "about.p2": "Van de eerste afspraak tot en met de oplevering heeft u één vast aanspreekpunt. Geen tussenpartijen, heldere afspraken en werk dat wij zelf uitvoeren.",
     "about.team_kvk": "KvK",
     "about.team_btw": "BTW",
     "about.fact_workarea": "Werkgebied",
-    "about.photo_alt": "Foto van het team",
 
     "werkgebied.heading": "Werkgebied",
     "werkgebied.text": "Actief in Nederland, met een vaste kern van regio's waarin de meeste klussen worden uitgevoerd.",
@@ -304,13 +303,12 @@ window.I18N = {
     "process.4.desc": "We review the result together, so you're left satisfied with a finished job.",
 
     "about.heading": "About us",
-    "about.intro": "Two independent craftsmen, one trusted address",
-    "about.p1": "We are two independent craftsmen (both self-employed) working together under the name KlusArts Klusbedrijf.",
-    "about.p2": "No rotating subcontractors and no middlemen: one of us is personally on site for every job, from the first introduction to final delivery.",
+    "about.intro": "Craftsmanship with a personal approach",
+    "about.p1": "KlusArts Klusbedrijf is the partnership of two independent tradespeople. We carry out renovation, finishing and painting work for homeowners and businesses in Zeeland and the surrounding area.",
+    "about.p2": "From the first appointment through to completion, you have one fixed point of contact. No middlemen, clear agreements and work we carry out ourselves.",
     "about.team_kvk": "Chamber of Commerce",
     "about.team_btw": "VAT",
     "about.fact_workarea": "Working area",
-    "about.photo_alt": "Photo of the team",
 
     "werkgebied.heading": "Working area",
     "werkgebied.text": "Active across the Netherlands, with a core set of regions where most jobs are carried out.",
