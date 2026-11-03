@@ -9,16 +9,28 @@
   if (!cube || !canvas) return;
 
   var modelUrl = "/models/the_impossible_rubiks_cube.glb";
-  // Het model (~390 KB) alvast ophalen, parallel aan de Three.js-modules.
-  var modelPromise = fetch(modelUrl).then(function (res) { return res.arrayBuffer(); });
 
-  Promise.all([
-    import("/js/vendor/three/three.module.js"),
-    import("/js/vendor/three/examples/jsm/loaders/GLTFLoader.js"),
-    modelPromise
-  ]).then(function (parts) {
-    start(parts[0], parts[1].GLTFLoader, parts[2]);
-  }).catch(function (err) { /* geen kubus is beter dan een kapotte pagina */ if (window.console) console.warn("cube:", err); });
+  function boot() {
+    // Het model (~390 KB) alvast ophalen, parallel aan de Three.js-modules.
+    var modelPromise = fetch(modelUrl).then(function (res) { return res.arrayBuffer(); });
+    Promise.all([
+      import("/js/vendor/three/three.module.js"),
+      import("/js/vendor/three/examples/jsm/loaders/GLTFLoader.js"),
+      modelPromise
+    ]).then(function (parts) {
+      start(parts[0], parts[1].GLTFLoader, parts[2]);
+    }).catch(function (err) { /* geen kubus is beter dan een kapotte pagina */ if (window.console) console.warn("cube:", err); });
+  }
+
+  // Pas laden als de pagina klaar is en de browser even niets te doen heeft: de kubus mag het
+  // eerste beeld (en dus Google's snelheidsmeting) nooit vertragen. Niet bij "data besparen".
+  if (navigator.connection && navigator.connection.saveData) return;
+  function schedule() {
+    if ("requestIdleCallback" in window) requestIdleCallback(boot, { timeout: 2500 });
+    else setTimeout(boot, 400);
+  }
+  if (document.readyState === "complete") schedule();
+  else window.addEventListener("load", schedule, { once: true });
 
   function start(THREE, GLTFLoader, modelBuffer) {
     var renderer;

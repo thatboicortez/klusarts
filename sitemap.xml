@@ -1,59 +1,333 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://klusarts.nl/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/en/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/diensten/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/en/diensten/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/projecten/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/projecten/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/projecten/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/projecten/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schuur-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schuur-na-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/gevel-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/gevel-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-keuken-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-keuken-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer2-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer2-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/sloopwerk-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/sloopwerk-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/sloopwerk-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/gipsplaten-01.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://klusarts.nl/en/projecten/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/projecten/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/projecten/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/projecten/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/kozijnen-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schuur-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schuur-na-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/gevel-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/gevel-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-keuken-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-keuken-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer2-voor.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer2-na.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/laminaat-kamer3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/schilderwerk-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-04.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/renovatie-05.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/sloopwerk-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/sloopwerk-02.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/sloopwerk-03.jpg</image:loc></image:image>
+    <image:image><image:loc>https://klusarts.nl/images/projecten/gipsplaten-01.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://klusarts.nl/offerte/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/offerte/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/offerte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/offerte/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://klusarts.nl/en/offerte/</loc>
+    <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/offerte/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/offerte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/offerte/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/gevel-schilderen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/gevel-schilderen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/gevel-schilderen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/gevel-schilderen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/gevel-schilderen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/gevel-schilderen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/gevel-schilderen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/gevel-schilderen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/sloopwerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/sloopwerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/sloopwerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/sloopwerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/sloopwerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/sloopwerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/sloopwerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/sloopwerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/gevelisolatie/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/gevelisolatie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/gevelisolatie/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/gevelisolatie/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/gevelisolatie/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/gevelisolatie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/gevelisolatie/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/gevelisolatie/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/gipsplaten/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/gipsplaten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/gipsplaten/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/gipsplaten/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/gipsplaten/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/gipsplaten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/gipsplaten/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/gipsplaten/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/kozijnen-plaatsen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/kozijnen-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/kozijnen-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/kozijnen-plaatsen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/kozijnen-plaatsen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/kozijnen-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/kozijnen-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/kozijnen-plaatsen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/deuren-plaatsen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/deuren-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/deuren-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/deuren-plaatsen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/deuren-plaatsen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/deuren-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/deuren-plaatsen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/deuren-plaatsen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/stukadoorswerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/stukadoorswerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/stukadoorswerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/stukadoorswerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/stukadoorswerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/stukadoorswerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/stukadoorswerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/stukadoorswerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/loodgieterswerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/loodgieterswerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/loodgieterswerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/loodgieterswerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/loodgieterswerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/loodgieterswerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/loodgieterswerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/loodgieterswerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/restauratie-renovatie/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/restauratie-renovatie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/restauratie-renovatie/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/restauratie-renovatie/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/restauratie-renovatie/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/restauratie-renovatie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/restauratie-renovatie/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/restauratie-renovatie/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/vloeren-leggen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/vloeren-leggen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/vloeren-leggen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/vloeren-leggen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/vloeren-leggen/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/vloeren-leggen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/vloeren-leggen/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/vloeren-leggen/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/diensten/timmerwerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/timmerwerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/timmerwerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/timmerwerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://klusarts.nl/en/diensten/timmerwerk/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://klusarts.nl/diensten/timmerwerk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://klusarts.nl/en/diensten/timmerwerk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://klusarts.nl/diensten/timmerwerk/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

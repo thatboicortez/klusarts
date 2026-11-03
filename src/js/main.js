@@ -107,14 +107,17 @@
   function applyI18n() {
     doc.setAttribute("lang", currentLang);
 
+    /* Titel en meta staan per taal al vast in de HTML (voor zoekmachines); alleen de 404-pagina,
+       die één bestand voor beide talen is, past ze hier aan. */
     var page = document.body.getAttribute("data-page") || "home";
-    var title = document.querySelector("title");
-    if (title) title.textContent = withBusinessName(t("meta.title." + page));
-    [["meta[name='description']", "meta.description."], ["meta[property='og:title']", "meta.title."], ["meta[property='og:description']", "meta.description."]]
-      .forEach(function (pair) {
+    if (page === "404") {
+      var title = document.querySelector("title");
+      if (title) title.textContent = withBusinessName(t("meta.title." + page));
+      [["meta[name='description']", "meta.description."]].forEach(function (pair) {
         var el = document.querySelector(pair[0]);
         if (el) el.setAttribute("content", withBusinessName(t(pair[1] + page)));
       });
+    }
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder"))); });

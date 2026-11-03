@@ -1,0 +1,368 @@
+{
+  "_comment": "Inhoud van de dienstenpagina's (/diensten/<slug>/ en /en/diensten/<slug>/). build.py maakt hier pagina's van. Houd de teksten feitelijk: geen prijzen, jaren ervaring of garanties noemen die niet kloppen.",
+  "services": [
+    {
+      "key": "gevel-schilderen", "slug": "gevel-schilderen", "option": "schilderwerk", "category": "schilderwerk", "photo": "schilderwerk-05",
+      "nl": {
+        "name": "Gevel schilderen", "topic": "gevelschilderwerk",
+        "h1": "Gevel schilderen in Zeeland",
+        "title": "Gevel schilderen in Zeeland – Gevelschilderwerk | KlusArts",
+        "desc": "Gevel laten schilderen in Zeeland? Gevelschilderwerk voor woningen en panden in Middelburg, Vlissingen, Goes en omgeving. Vraag vrijblijvend een offerte aan.",
+        "lead": "Een goed geschilderde gevel beschermt uw pand tegen regen, vocht en zon en geeft het meteen een verzorgde uitstraling. Wij schilderen gevels van woningen en bedrijfspanden in Middelburg, Vlissingen, Goes en de rest van Zeeland.",
+        "body": ["Voor een duurzaam resultaat begint gevelschilderwerk met de voorbereiding: reinigen, herstellen van beschadigingen en het afplakken en afdekken van kozijnen, ramen en beplanting. Daarna kiezen we samen met u de juiste verf en kleur voor de ondergrond, zodat de laag goed hecht en jarenlang mooi blijft."],
+        "points_h": "Wat wij doen bij gevelschilderwerk",
+        "points": ["Gevel reinigen en voorbereiden", "Scheuren, gaten en loszittende delen herstellen", "Passende verf voor de ondergrond kiezen", "Kozijnen en omgeving afplakken en afdekken", "Strak, gelijkmatig eindresultaat met nette oplevering"],
+        "faq": [
+          ["Hoe lang duurt het schilderen van een gevel?", "Dat hangt af van de grootte van de gevel, de staat van de ondergrond en het weer. Na een bezichtiging geven wij een duidelijke planning."],
+          ["Kan ik zelf de kleur kiezen?", "Ja. Wij denken graag mee over kleur en afwerking en stemmen de verfkeuze af op het type ondergrond."],
+          ["Schilderen jullie ook hekwerk en siersmeedwerk?", "Ja, bij gevelwerk schilderen we ook onderdelen zoals hekwerk en siersmeedwerk op de gevel of dakrand."]
+        ]
+      },
+      "en": {
+        "name": "Facade painting", "topic": "facade painting",
+        "h1": "Facade painting in Zeeland",
+        "title": "Facade Painting in Zeeland – Exterior Painters | KlusArts",
+        "desc": "Need your facade painted in Zeeland? Exterior painting for homes and buildings in Middelburg, Vlissingen, Goes and surroundings. Request a free quote.",
+        "lead": "A well-painted facade protects your building from rain, moisture and sun and instantly gives it a well-kept look. We paint the facades of homes and commercial buildings in Middelburg, Vlissingen, Goes and the rest of Zeeland.",
+        "body": ["A lasting result starts with preparation: cleaning, repairing damage and masking frames, windows and plants. Then we choose the right paint and colour for the surface together with you, so the coating bonds well and stays beautiful for years."],
+        "points_h": "What we do for facade painting",
+        "points": ["Clean and prepare the facade", "Repair cracks, holes and loose parts", "Choose suitable paint for the surface", "Mask frames and surroundings", "A smooth, even finish and a tidy handover"],
+        "faq": [
+          ["How long does it take to paint a facade?", "That depends on the size of the facade, the condition of the surface and the weather. After a site visit we give you a clear schedule."],
+          ["Can I choose the colour myself?", "Yes. We are happy to advise on colour and finish and match the paint to the type of surface."],
+          ["Do you also paint railings and ornamental ironwork?", "Yes, as part of facade work we also paint parts such as railings and ornamental ironwork on the facade or roof edge."]
+        ]
+      }
+    },
+    {
+      "key": "sloopwerk", "slug": "sloopwerk", "option": "sloopwerk", "category": "sloopwerk", "photo": "sloopwerk-01",
+      "nl": {
+        "name": "Sloopwerk", "topic": "sloopwerk",
+        "h1": "Sloopwerk in Zeeland",
+        "title": "Sloopwerk in Zeeland – Interieur & wanden slopen | KlusArts",
+        "desc": "Wanden, vloeren en interieurs laten slopen in Zeeland? Veilig sloopwerk met nette afvoer in Middelburg, Vlissingen, Goes en omgeving. Vraag een offerte aan.",
+        "lead": "Een verbouwing begint vaak met slopen. Wij verzorgen sloopwerk voor woningen en bedrijfspanden in Zeeland: van één wand of vloer tot een volledig interieur, gecontroleerd en met zo min mogelijk overlast.",
+        "body": ["Voor we beginnen kijken we wat er gesloopt moet worden en wat blijft staan, zodat leidingen, constructieve delen en de rest van het pand ongemoeid blijven. Puin en sloopafval scheiden we en voeren we netjes af, zodat u de ruimte opgeruimd en klaar voor de volgende fase terugkrijgt."],
+        "points_h": "Wat wij doen bij sloopwerk",
+        "points": ["Wanden en doorbraken, bijvoorbeeld voor een nieuw kozijn of een nieuwe deuropening", "Oude vloeren en vloerafwerking verwijderen", "Wand- en plafondbekleding verwijderen", "Complete interieurs strippen voor een renovatie", "Puin scheiden, afvoeren en de ruimte opgeruimd opleveren"],
+        "faq": [
+          ["Is er een vergunning nodig voor sloopwerk?", "Dat hangt af van wat er gesloopt wordt. Bij het weghalen van dragende delen of bij een groter project kan een vergunning of constructieberekening nodig zijn. Wij denken graag mee en geven aan waar u op moet letten."],
+          ["Nemen jullie het puin mee?", "Ja. Sloopafval wordt gescheiden en afgevoerd, zodat u er niet zelf mee blijft zitten."],
+          ["Kan sloopwerk ook onderdeel zijn van een complete renovatie?", "Zeker. Wij kunnen sloopwerk combineren met bijvoorbeeld gipsplaten, stucwerk en vloeren, zodat u voor het hele project één aanspreekpunt heeft."]
+        ]
+      },
+      "en": {
+        "name": "Demolition", "topic": "demolition work",
+        "h1": "Demolition work in Zeeland",
+        "title": "Demolition Work in Zeeland – Interior & Wall Demolition | KlusArts",
+        "desc": "Need walls, floors or an interior demolished in Zeeland? Safe demolition with tidy waste removal in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "A renovation often starts with demolition. We carry out demolition work for homes and commercial buildings in Zeeland: from a single wall or floor to a complete interior, controlled and with as little disturbance as possible.",
+        "body": ["Before we start, we look at what has to go and what stays, so pipes, structural parts and the rest of the building are left untouched. We separate rubble and demolition waste and remove it neatly, so you get the space back tidy and ready for the next phase."],
+        "points_h": "What we do for demolition",
+        "points": ["Walls and openings, for example for a new window frame or doorway", "Remove old floors and floor finishes", "Remove wall and ceiling coverings", "Strip complete interiors for a renovation", "Separate and remove rubble and leave the space tidy"],
+        "faq": [
+          ["Is a permit needed for demolition work?", "That depends on what is being demolished. Removing load-bearing parts or a larger project may require a permit or structural calculation. We are happy to advise and point out what to look out for."],
+          ["Do you take the rubble away?", "Yes. Demolition waste is separated and removed, so you are not left with it."],
+          ["Can demolition be part of a complete renovation?", "Absolutely. We can combine demolition with drywall, plastering and floors, for example, so you have a single point of contact for the whole project."]
+        ]
+      }
+    },
+    {
+      "key": "gevelisolatie", "slug": "gevelisolatie", "option": "isolatie", "category": "isolatie", "photo": "gevel-voor",
+      "nl": {
+        "name": "Gevelisolatie", "topic": "gevelisolatie",
+        "h1": "Gevelisolatie in Zeeland",
+        "title": "Gevelisolatie in Zeeland – Gevel isoleren | KlusArts",
+        "desc": "Gevel laten isoleren in Zeeland? Gevelisolatie voor woningen in Middelburg, Vlissingen, Goes en omgeving: minder stookkosten en meer comfort. Offerte aanvragen.",
+        "lead": "Een goed geïsoleerde gevel houdt de warmte binnen, verlaagt de stookkosten en maakt uw woning comfortabeler. Wij brengen gevelisolatie aan bij woningen en gebouwen in Zeeland.",
+        "body": ["Isolatie werkt alleen goed als ze zorgvuldig en aansluitend wordt aangebracht. Daarom bekijken we eerst het type gevel en de staat ervan en kiezen we de juiste aanpak en het juiste isolatiemateriaal. Daarna volgt de afwerking, zodat de gevel er netjes uitziet en beschermd is tegen weer en wind."],
+        "points_h": "Wat wij doen bij gevelisolatie",
+        "points": ["Type gevel en ondergrond beoordelen", "Isolatieplaten aanbrengen op regelwerk", "Aansluitingen bij kozijnen, hoeken en daklijsten zorgvuldig afwerken", "Afwerken met gevelbekleding, zoals houten delen, of met stucwerk", "Ook toepasbaar bij uitbouwen en nieuwbouw"],
+        "faq": [
+          ["Wat levert gevelisolatie op?", "Een betere isolatie houdt warmte in huis. Dat kan de stookkosten verlagen en zorgt voor een gelijkmatiger binnenklimaat. De exacte besparing hangt af van uw woning."],
+          ["Kan gevelisolatie aan de buitenkant worden aangebracht?", "Ja, isolatie aan de buitenzijde van de gevel is een gangbare aanpak. Deze wordt afgewerkt met bijvoorbeeld gevelbekleding of stucwerk."],
+          ["Kunnen jullie ook de afwerking van de gevel doen?", "Ja. Na het isoleren werken wij de gevel af, bijvoorbeeld met houten gevelbekleding. Zo heeft u één partij voor het hele werk."]
+        ]
+      },
+      "en": {
+        "name": "Facade insulation", "topic": "facade insulation",
+        "h1": "Facade insulation in Zeeland",
+        "title": "Facade Insulation in Zeeland – External Wall Insulation | KlusArts",
+        "desc": "Facade insulation for homes in Zeeland: Middelburg, Vlissingen, Goes and surroundings. Lower heating costs and more comfort. Request a quote.",
+        "lead": "A well-insulated facade keeps the heat in, lowers heating costs and makes your home more comfortable. We install facade insulation on homes and buildings in Zeeland.",
+        "body": ["Insulation only works well if it is installed carefully and without gaps. That is why we first look at the type and condition of the facade and choose the right approach and insulation material. The finishing follows, so the facade looks neat and is protected from the weather."],
+        "points_h": "What we do for facade insulation",
+        "points": ["Assess the type of facade and substrate", "Install insulation boards on battens", "Finish connections at window frames, corners and cornices carefully", "Finish with cladding, such as timber boards, or with plaster", "Also suitable for extensions and new builds"],
+        "faq": [
+          ["What does facade insulation deliver?", "Better insulation keeps heat in your home. This can lower heating costs and gives a more even indoor climate. The exact saving depends on your home."],
+          ["Can facade insulation be installed on the outside?", "Yes, insulating the outside of the facade is a common approach. It is finished with cladding or plaster, for example."],
+          ["Can you also finish the facade?", "Yes. After insulating we finish the facade, for example with timber cladding, so you have one party for the whole job."]
+        ]
+      }
+    },
+    {
+      "key": "gipsplaten", "slug": "gipsplaten", "option": "gipsplaten", "category": "gipsplaten", "photo": "gipsplaten-02",
+      "nl": {
+        "name": "Gipsplaten & wanden", "topic": "gipsplaatwerk",
+        "h1": "Gipsplaten wanden en plafonds in Zeeland",
+        "title": "Gipsplaten wanden & plafonds in Zeeland | KlusArts",
+        "desc": "Gipsplaten wanden en plafonds laten plaatsen in Zeeland? Nieuwe indelingen en verlaagde plafonds in Middelburg, Vlissingen, Goes e.o. Vraag een offerte aan.",
+        "lead": "Met gipsplaten maakt u snel en strak nieuwe wanden, plafonds en indelingen. Wij plaatsen en finishen gipsplaatwerk in woningen en bedrijfsruimtes in heel Zeeland.",
+        "body": ["We bouwen het regelwerk, plaatsen de platen waterpas en werken de naden en schroefgaten af. Zo krijgt u een vlakke ondergrond, klaar voor stucwerk, sauswerk of behang."],
+        "points_h": "Wat wij doen bij gipsplaatwerk",
+        "points": ["Scheidingswanden en nieuwe indelingen", "Verlaagde plafonds en trapgaten afwerken", "Regelwerk als onderconstructie", "Naden en schroefgaten afwerken", "De wand klaarmaken voor stucwerk of sauzen"],
+        "faq": [
+          ["Is gipsplaat geschikt voor een vochtige ruimte?", "Daarvoor bestaan speciale vochtbestendige platen. Wij adviseren welke plaat bij de ruimte past."],
+          ["Kunnen jullie een bestaande ruimte opnieuw indelen?", "Ja. Een nieuwe indeling met gipsplaatwanden is een veelvoorkomende klus, van één scheidingswand tot een complete indeling."],
+          ["Kunnen jullie ook een zolder afwerken met gipsplaten?", "Ja. Wij werken zolderruimtes, schuine wanden en dakkapellen af met gipsplaten, ook rond dakramen."]
+        ]
+      },
+      "en": {
+        "name": "Drywall & partition walls", "topic": "drywall work",
+        "h1": "Drywall walls and ceilings in Zeeland",
+        "title": "Drywall Walls & Ceilings in Zeeland | KlusArts",
+        "desc": "Need drywall walls and ceilings installed in Zeeland? New layouts and suspended ceilings in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "Drywall lets you build new walls, ceilings and layouts quickly and cleanly. We install and finish drywall in homes and commercial spaces across Zeeland.",
+        "body": ["We build the framing, fit the boards level and finish the joints and screw holes. This gives you a flat surface, ready for plastering, painting or wallpaper."],
+        "points_h": "What we do for drywall",
+        "points": ["Partition walls and new layouts", "Suspended ceilings and finishing stairwells", "Framing as the sub-structure", "Finish joints and screw holes", "Prepare the wall for plastering or painting"],
+        "faq": [
+          ["Is drywall suitable for a damp room?", "Special moisture-resistant boards exist for that. We advise which board suits the room."],
+          ["Can you change the layout of an existing room?", "Yes. A new layout with drywall partitions is a common job, from a single partition to a complete layout."],
+          ["Can you finish an attic with drywall?", "Yes. We finish attic rooms, sloping walls and dormers with drywall, including around roof windows."]
+        ]
+      }
+    },
+    {
+      "key": "kozijnen", "slug": "kozijnen-plaatsen", "option": "kozijnen", "category": "kozijnen", "photo": "kozijnen-02",
+      "nl": {
+        "name": "Kozijnen plaatsen", "topic": "kozijnen",
+        "h1": "Kozijnen plaatsen in Zeeland",
+        "title": "Kozijnen plaatsen in Zeeland – Kozijnen vervangen | KlusArts",
+        "desc": "Kozijnen laten plaatsen of vervangen in Zeeland? Nauwkeurig ingemeten en waterdicht afgewerkt in Middelburg, Vlissingen, Goes en omgeving. Offerte aanvragen.",
+        "lead": "Nieuwe of vervangende kozijnen verbeteren de uitstraling van uw woning en voorkomen tocht en lekkage, mits ze goed geplaatst worden. Wij plaatsen kozijnen bij renovatie, verbouwing en nieuwbouw in Zeeland.",
+        "body": ["Elk kozijn wordt nauwkeurig ingemeten en waterpas gesteld. Daarna werken we de aansluitingen met de muur luchtdicht en waterdicht af en zorgen we voor een nette afwerking aan de binnen- en buitenzijde."],
+        "points_h": "Wat wij doen bij het plaatsen van kozijnen",
+        "points": ["Oude kozijnen verwijderen en de opening voorbereiden", "Nieuwe kozijnen inmeten, plaatsen en stellen", "Waterdichte en tochtvrije aansluitingen", "Schuifpuien en grotere puien plaatsen", "Afwerking aan de binnen- en buitenzijde"],
+        "faq": [
+          ["Kunnen jullie ook een nieuwe opening in de muur maken voor een kozijn?", "Ja. Als er een nieuwe opening nodig is, verzorgen we ook het doorbreken van de wand en het plaatsen van het kozijn."],
+          ["Plaatsen jullie ook schuifpuien?", "Ja, ook schuifpuien en grotere puien behoren tot ons werk."],
+          ["Hoe voorkomen jullie tocht en lekkage?", "Door het kozijn nauwkeurig in te meten en waterpas te stellen en de aansluitingen met de muur zorgvuldig lucht- en waterdicht af te werken."]
+        ]
+      },
+      "en": {
+        "name": "Window frames", "topic": "window frames",
+        "h1": "Window frame installation in Zeeland",
+        "title": "Window Frame Installation in Zeeland – Replace Frames | KlusArts",
+        "desc": "Need window frames installed or replaced in Zeeland? Precisely measured and watertight in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "New or replacement window frames improve the look of your home and prevent draughts and leaks, provided they are fitted well. We install frames during renovations, extensions and new builds in Zeeland.",
+        "body": ["Every frame is measured precisely and set level. We then seal the connections with the wall airtight and watertight and finish the inside and outside neatly."],
+        "points_h": "What we do when installing window frames",
+        "points": ["Remove old frames and prepare the opening", "Measure, install and adjust new frames", "Watertight, draught-free connections", "Install sliding doors and larger glazed openings", "Finish inside and outside"],
+        "faq": [
+          ["Can you also create a new opening in the wall for a frame?", "Yes. If a new opening is needed, we also cut through the wall and install the frame."],
+          ["Do you install sliding patio doors?", "Yes, sliding doors and larger glazed openings are part of our work."],
+          ["How do you prevent draughts and leaks?", "By measuring the frame precisely, setting it level and sealing the connections with the wall carefully, airtight and watertight."]
+        ]
+      }
+    },
+    {
+      "key": "deuren", "slug": "deuren-plaatsen", "option": "deuren", "category": "kozijnen", "photo": "kozijnen-01",
+      "nl": {
+        "name": "Deuren plaatsen", "topic": "deuren",
+        "h1": "Deuren plaatsen in Zeeland",
+        "title": "Deuren plaatsen in Zeeland – Voordeur & binnendeuren | KlusArts",
+        "desc": "Voordeur, binnendeuren of kastdeuren laten plaatsen in Zeeland? Precies gehangen en afgesteld in Middelburg, Vlissingen, Goes en omgeving. Vraag een offerte aan.",
+        "lead": "Een deur die soepel sluit en goed afsluit maakt het verschil in dagelijks gebruik. Wij plaatsen voordeuren, binnendeuren en kastdeuren in woningen en panden in Zeeland.",
+        "body": ["We meten de opening precies in, hangen de deur waterpas en stellen scharnieren en sluitwerk af. Bij een nieuwe buitendeur werken we de aansluiting met de muur netjes en weerbestendig af."],
+        "points_h": "Wat wij doen bij het plaatsen van deuren",
+        "points": ["Voordeuren en andere buitendeuren", "Binnendeuren en kastdeuren", "Nieuw deurkozijn inmeten en stellen", "Scharnieren en sluitwerk afstellen", "Netjes afwerken rondom de deur"],
+        "faq": [
+          ["Kunnen jullie een bestaande deuropening aanpassen?", "Ja. Als de opening niet past, passen we deze aan voordat de nieuwe deur wordt geplaatst."],
+          ["Kan ik een deur laten plaatsen die ik zelf heb gekocht?", "Stuur ons gerust een bericht met de details van de deur, dan bespreken we de mogelijkheden."],
+          ["Plaatsen jullie ook een nieuw deurkozijn?", "Ja. Wij meten het kozijn in, plaatsen het en stellen het zo dat de deur soepel sluit."]
+        ]
+      },
+      "en": {
+        "name": "Door installation", "topic": "door installation",
+        "h1": "Door installation in Zeeland",
+        "title": "Door Installation in Zeeland – Front Doors & Interior Doors | KlusArts",
+        "desc": "Need a front door, interior doors or cupboard doors fitted in Zeeland? Precisely hung and adjusted in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "A door that closes smoothly and seals well makes a difference every day. We install front doors, interior doors and cupboard doors in homes and buildings across Zeeland.",
+        "body": ["We measure the opening precisely, hang the door level and adjust hinges and locks. For a new exterior door we finish the connection with the wall neatly and weatherproof."],
+        "points_h": "What we do when installing doors",
+        "points": ["Front doors and other exterior doors", "Interior doors and cupboard doors", "Measure and set a new door frame", "Adjust hinges and hardware", "Finish neatly around the door"],
+        "faq": [
+          ["Can you adapt an existing door opening?", "Yes. If the opening does not fit, we adapt it before the new door is installed."],
+          ["Can I have a door fitted that I bought myself?", "Feel free to send us a message with the details of the door and we will discuss the options."],
+          ["Do you also install a new door frame?", "Yes. We measure the frame, install it and set it so the door closes smoothly."]
+        ]
+      }
+    },
+    {
+      "key": "stukadoor", "slug": "stukadoorswerk", "option": "stukadoor", "category": "stukadoor", "photo": "stukadoor-02",
+      "nl": {
+        "name": "Stukadoorswerk", "topic": "stucwerk",
+        "h1": "Stukadoorswerk in Zeeland",
+        "title": "Stukadoorswerk in Zeeland – Wanden & plafonds stucen | KlusArts",
+        "desc": "Stukadoor nodig in Zeeland? Strak stucwerk voor wanden en plafonds, klaar om te sausen, in Middelburg, Vlissingen, Goes en omgeving. Vraag een offerte aan.",
+        "lead": "Strak stucwerk is de basis van elke geslaagde renovatie. Wij stuken wanden en plafonds in woningen en bedrijfspanden in heel Zeeland, klaar om te sausen, te behangen of te betegelen.",
+        "body": ["Een mooie afwerklaag begint bij de ondergrond. We beoordelen de wand, repareren waar nodig en brengen het stucwerk vlak en glad aan. Zo krijgt u een resultaat waar u daarna eenvoudig mee verder kunt."],
+        "points_h": "Wat wij doen bij stucwerk",
+        "points": ["Wanden en plafonds stucen", "Glad en vlak afgewerkt, klaar voor sauswerk", "Stucwerk bij renovatie en verbouwing", "Zolders, dakkapellen en lastige hoeken", "Netjes afdekken en opruimen"],
+        "faq": [
+          ["Wanneer kan er na het stucen geschilderd worden?", "Stucwerk moet eerst goed uitdrogen. Hoe lang dat duurt hangt af van de dikte van de laag en de omstandigheden; wij geven aan wanneer u verder kunt."],
+          ["Stucen jullie ook plafonds?", "Ja, wanden én plafonds, ook op zolders en in lastige hoeken."],
+          ["Kunnen jullie ook gipsplaten plaatsen en daarna stucen?", "Ja. Wij kunnen het hele traject doen: de wand opbouwen met gipsplaten en daarna afwerken met stucwerk."]
+        ]
+      },
+      "en": {
+        "name": "Plastering", "topic": "plastering",
+        "h1": "Plastering in Zeeland",
+        "title": "Plastering in Zeeland – Plasterer for Walls & Ceilings | KlusArts",
+        "desc": "Need a plasterer in Zeeland? Smooth plastering for walls and ceilings, ready for painting, in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "Smooth plastering is the basis of every successful renovation. We plaster walls and ceilings in homes and commercial buildings across Zeeland, ready to paint, wallpaper or tile.",
+        "body": ["A beautiful finish starts with the surface. We assess the wall, repair where needed and apply the plaster flat and smooth. That gives you a result you can easily continue with."],
+        "points_h": "What we do for plastering",
+        "points": ["Plaster walls and ceilings", "Smooth, flat finish, ready for painting", "Plastering during renovations and extensions", "Attics, dormers and awkward corners", "Neatly cover up and clean up"],
+        "faq": [
+          ["When can I paint after plastering?", "Plaster has to dry properly first. How long that takes depends on the thickness of the layer and the conditions; we tell you when you can continue."],
+          ["Do you also plaster ceilings?", "Yes, walls and ceilings, including in attics and awkward corners."],
+          ["Can you install drywall and then plaster it?", "Yes. We can do the whole process: build the wall with drywall and then finish it with plaster."]
+        ]
+      }
+    },
+    {
+      "key": "loodgieter", "slug": "loodgieterswerk", "option": "loodgieter", "category": "loodgieter", "photo": "loodgieter-02",
+      "nl": {
+        "name": "Loodgieterswerk", "topic": "loodgieterswerk",
+        "h1": "Loodgieterswerk in Zeeland",
+        "title": "Loodgieterswerk in Zeeland – Leidingwerk & sanitair | KlusArts",
+        "desc": "Loodgieterswerk voor kleine en middelgrote klussen in Zeeland: leidingwerk, aansluitingen en sanitair in Middelburg, Vlissingen, Goes e.o. Vraag een offerte aan.",
+        "lead": "Bij een verbouwing hoort vaak ook leidingwerk. Wij voeren kleine tot middelgrote loodgieterswerkzaamheden uit: netjes, waterdicht en volgens de geldende richtlijnen.",
+        "body": ["Denk aan het aanleggen of verleggen van leidingen, het aansluiten van sanitair en het netjes wegwerken en isoleren van leidingen. Zo staat uw installatie goed in elkaar en blijft hij toegankelijk voor onderhoud."],
+        "points_h": "Wat wij doen bij loodgieterswerk",
+        "points": ["Leidingwerk aanleggen en verleggen", "Sanitair aansluiten", "Verdelers en afsluiters monteren", "Leidingen isoleren en netjes wegwerken", "Ook als onderdeel van een verbouwing of renovatie"],
+        "faq": [
+          ["Voor welke klussen kan ik jullie inschakelen?", "Voor kleine tot middelgrote loodgieterswerkzaamheden, vaak als onderdeel van een verbouwing. Twijfelt u? Stuur een bericht, dan bespreken we wat mogelijk is."],
+          ["Kunnen jullie leidingen verleggen bij een nieuwe indeling?", "Ja, bij een verbouwing of nieuwe indeling leggen we leidingen aan of verleggen we ze."],
+          ["Sluiten jullie ook sanitair aan?", "Ja, het aansluiten van sanitair hoort bij ons werk."]
+        ]
+      },
+      "en": {
+        "name": "Plumbing", "topic": "plumbing work",
+        "h1": "Plumbing in Zeeland",
+        "title": "Plumbing in Zeeland – Pipework & Sanitaryware | KlusArts",
+        "desc": "Plumbing for small and medium jobs in Zeeland: pipework, connections and sanitaryware in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "A renovation often includes pipework. We carry out small to medium plumbing jobs: neatly, watertight and in line with current guidelines.",
+        "body": ["Think of laying or rerouting pipes, connecting sanitaryware and neatly concealing and insulating pipes. That way your installation is well put together and stays accessible for maintenance."],
+        "points_h": "What we do for plumbing",
+        "points": ["Lay and reroute pipework", "Connect sanitaryware", "Fit manifolds and valves", "Insulate and neatly conceal pipes", "Also as part of a renovation or extension"],
+        "faq": [
+          ["What jobs can I call you for?", "Small to medium plumbing jobs, often as part of a renovation. Not sure? Send a message and we will discuss what is possible."],
+          ["Can you reroute pipes for a new layout?", "Yes, in a renovation or new layout we lay or reroute pipes."],
+          ["Do you also connect sanitaryware?", "Yes, connecting sanitaryware is part of our work."]
+        ]
+      }
+    },
+    {
+      "key": "restauratie", "slug": "restauratie-renovatie", "option": "restauratie", "category": "restauratie", "photo": "restauratie-01",
+      "nl": {
+        "name": "Restauratie & renovatie", "topic": "restauratie en renovatie",
+        "h1": "Restauratie en renovatie in Zeeland",
+        "title": "Restauratie & renovatie in Zeeland | KlusArts",
+        "desc": "Restauratie en renovatie in Zeeland: oude details herstellen en ruimtes weer bij de tijd brengen in Middelburg, Vlissingen, Goes en omgeving. Offerte aanvragen.",
+        "lead": "Bij restauratie draait alles om vakmanschap en geduld. Wij herstellen oude details en brengen verouderde ruimtes weer helemaal bij de tijd, in woningen en panden door heel Zeeland.",
+        "body": ["Waar mogelijk behouden we originele elementen zoals metselwerk, trappen en afwerking, en vullen we ze aan met nieuw werk dat er bij past. Zo combineert u karakter met modern wooncomfort."],
+        "points_h": "Wat wij doen bij restauratie en renovatie",
+        "points": ["Complete renovatie van woningen en ruimtes", "Trappen plaatsen en herstellen", "Authentiek metselwerk en details behouden", "Vloeren, wanden, plafonds en afwerking vernieuwen", "Eén team voor de hele klus, van sloop tot oplevering"],
+        "faq": [
+          ["Kunnen jullie een complete verbouwing aan?", "Wij doen veel soorten werk zelf, van sloop tot afwerking, dus voor een heel project hoeft u niet meerdere partijen in te schakelen. Beschrijf uw plan en wij komen met een voorstel."],
+          ["Behouden jullie originele details?", "Waar het kan wel. We bekijken per klus wat de moeite waard is om te behouden en wat vervangen moet worden."],
+          ["Kunnen jullie een trap plaatsen of herstellen?", "Ja. Het plaatsen van trappen in karakteristieke panden is ook werk dat wij hebben gedaan."]
+        ]
+      },
+      "en": {
+        "name": "Restoration & renovation", "topic": "restoration and renovation",
+        "h1": "Restoration and renovation in Zeeland",
+        "title": "Restoration & Renovation in Zeeland | KlusArts",
+        "desc": "Restoration and renovation in Zeeland: repairing old details and bringing rooms up to date in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "Restoration is all about craftsmanship and patience. We repair old details and bring outdated rooms fully up to date, in homes and buildings across Zeeland.",
+        "body": ["Where possible we keep original elements such as brickwork, staircases and finishes and complement them with new work that fits. That way you combine character with modern comfort."],
+        "points_h": "What we do for restoration and renovation",
+        "points": ["Complete renovation of homes and rooms", "Install and repair staircases", "Keep authentic brickwork and details", "Renew floors, walls, ceilings and finishes", "One team for the whole job, from demolition to completion"],
+        "faq": [
+          ["Can you take on a complete renovation?", "We do many kinds of work ourselves, from demolition to finishing, so you do not need several parties for a whole project. Describe your plan and we will come with a proposal."],
+          ["Do you keep original details?", "Where possible, yes. We look at each job to see what is worth keeping and what has to be replaced."],
+          ["Can you install or repair a staircase?", "Yes. Installing staircases in characteristic buildings is also work we have done."]
+        ]
+      }
+    },
+    {
+      "key": "vloeren", "slug": "vloeren-leggen", "option": "vloeren", "category": "vloeren", "photo": "laminaat-kamer-na",
+      "nl": {
+        "name": "Laminaat & vloeren", "topic": "laminaat leggen",
+        "h1": "Laminaat en vloeren leggen in Zeeland",
+        "title": "Laminaat leggen in Zeeland – Vloer laten leggen | KlusArts",
+        "desc": "Laminaat of een vloer laten leggen in Zeeland? Ondervloer en laminaat netjes gelegd in Middelburg, Vlissingen, Goes en omgeving. Vraag een offerte aan.",
+        "lead": "Een nieuwe vloer verandert een ruimte direct. Wij leggen laminaat en de bijbehorende ondervloer in woonkamers, slaapkamers en keukens in heel Zeeland.",
+        "body": ["Een mooie vloer begint met een goede ondergrond. We maken de vloer schoon en vlak, leggen de ondervloer en leggen daarna het laminaat nauwkeurig en strak. Zo krijgt u een vloer die netjes aansluit op wanden en deuren."],
+        "points_h": "Wat wij doen bij het leggen van een vloer",
+        "points": ["Ondergrond controleren en schoonmaken", "Ondervloer leggen", "Laminaat leggen in kamers, keukens en gangen", "Netjes afwerken langs wanden en deuren", "Een oude vloer eerst verwijderen als dat nodig is"],
+        "faq": [
+          ["Is een ondervloer nodig bij laminaat?", "Meestal wel. De ondervloer egaliseert kleine oneffenheden en zorgt voor comfort en geluiddemping. Wij adviseren wat bij uw vloer past."],
+          ["Kan laminaat op een betonvloer worden gelegd?", "Ja, laminaat wordt vaak op een vlakke ondergrond zoals beton gelegd, met een geschikte ondervloer."],
+          ["Welke vloeren kunnen jullie leggen?", "Laminaat leggen wij regelmatig. Heeft u een andere vloer in gedachten? Stuur een bericht, dan bekijken we wat mogelijk is."]
+        ]
+      },
+      "en": {
+        "name": "Laminate & floors", "topic": "laminate flooring",
+        "h1": "Laminate and floor installation in Zeeland",
+        "title": "Laminate Flooring Installation in Zeeland – Floor Fitting | KlusArts",
+        "desc": "Need laminate or a floor laid in Zeeland? Underlay and laminate fitted neatly in Middelburg, Vlissingen, Goes and surroundings. Request a quote.",
+        "lead": "A new floor changes a room instantly. We lay laminate and the underlay that goes with it in living rooms, bedrooms and kitchens across Zeeland.",
+        "body": ["A beautiful floor starts with a good base. We clean and level the floor, lay the underlay and then lay the laminate precisely and tightly. That gives you a floor that connects neatly to walls and doors."],
+        "points_h": "What we do when laying a floor",
+        "points": ["Check and clean the subfloor", "Lay the underlay", "Lay laminate in rooms, kitchens and hallways", "Finish neatly along walls and doors", "Remove the old floor first if needed"],
+        "faq": [
+          ["Do I need an underlay with laminate?", "Usually yes. The underlay evens out small irregularities and adds comfort and sound insulation. We advise what suits your floor."],
+          ["Can laminate be laid on a concrete floor?", "Yes, laminate is often laid on a flat subfloor such as concrete, with a suitable underlay."],
+          ["Which floors can you lay?", "We lay laminate regularly. Have another floor in mind? Send a message and we will see what is possible."]
+        ]
+      }
+    },
+    {
+      "key": "timmerwerk", "slug": "timmerwerk", "option": "timmerwerk", "category": "timmerwerk", "photo": "schuur-na-2",
+      "nl": {
+        "name": "Timmerwerk & gevelbekleding", "topic": "timmerwerk",
+        "h1": "Timmerwerk en gevelbekleding in Zeeland",
+        "title": "Timmerwerk & gevelbekleding in Zeeland | KlusArts",
+        "desc": "Timmerwerk, houten gevelbekleding en tuinhuisjes in Zeeland: van houten frame tot zwarte rabatdelen. Actief in Middelburg, Vlissingen en Goes. Offerte aanvragen.",
+        "lead": "Van een houten gevelbekleding tot een nieuwe tuinschuur: timmerwerk vraagt precisie en een goed oog voor detail. Wij verzorgen timmerwerk en gevelbekleding voor woningen en tuinen in Zeeland.",
+        "body": ["We bouwen het houten frame, zorgen voor een goede onderconstructie en werken de bekleding netjes af, bijvoorbeeld met zwarte rabatdelen. Het resultaat is een strakke afwerking die goed bij uw woning of tuin past."],
+        "points_h": "Wat wij doen bij timmerwerk",
+        "points": ["Houten frames en houtconstructies", "Tuinschuren en bijgebouwen", "Gevelbekleding met houten delen, zoals rabatdelen", "Regelwerk en onderconstructie", "Afwerking en detaillering"],
+        "faq": [
+          ["Bouwen jullie ook tuinhuisjes of schuren?", "Ja, een houten tuinschuur is een voorbeeld van een project dat wij hebben gebouwd en bekleed. Bekijk ook onze projecten."],
+          ["Welke gevelbekleding is mogelijk?", "Houten gevelbekleding, bijvoorbeeld rabatdelen. Wij denken graag mee over wat bij uw woning past."],
+          ["Kunnen jullie gevelbekleding combineren met isolatie?", "Ja. Wij kunnen een gevel eerst isoleren en daarna afwerken met houten bekleding."]
+        ]
+      },
+      "en": {
+        "name": "Carpentry & cladding", "topic": "carpentry",
+        "h1": "Carpentry and cladding in Zeeland",
+        "title": "Carpentry & Timber Cladding in Zeeland | KlusArts",
+        "desc": "Carpentry, timber cladding and garden sheds in Zeeland: from timber frame to black cladding boards. Active in Middelburg, Vlissingen and Goes. Request a quote.",
+        "lead": "From timber cladding to a new garden shed: carpentry takes precision and an eye for detail. We do carpentry and cladding for homes and gardens in Zeeland.",
+        "body": ["We build the timber frame, provide a good sub-structure and finish the cladding neatly, for example with black cladding boards. The result is a clean finish that suits your home or garden."],
+        "points_h": "What we do for carpentry",
+        "points": ["Timber frames and timber structures", "Garden sheds and outbuildings", "Cladding with timber boards", "Battens and sub-structure", "Finishing and detailing"],
+        "faq": [
+          ["Do you also build garden sheds?", "Yes, a timber garden shed is an example of a project we have built and clad. Take a look at our projects too."],
+          ["Which cladding is possible?", "Timber cladding, for example cladding boards. We are happy to advise on what suits your home."],
+          ["Can you combine cladding with insulation?", "Yes. We can insulate a facade first and then finish it with timber cladding."]
+        ]
+      }
+    }
+  ]
+}

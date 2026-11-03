@@ -62,6 +62,7 @@ Wat je **bewerkt** staat in `src/` (leesbaar):
 ```
 src/index.html, src/diensten/, src/projecten/, src/offerte/, src/404.html   Nederlandse pagina's
 src/css/*.css, src/js/*.js                                                   stijlen en scripts
+content/services.json                                                        teksten van de 11 dienstenpagina's (NL + EN)
 content/alt-en.json                                                          Engelse foto-beschrijvingen
 ```
 
@@ -86,7 +87,11 @@ Het script:
 * zet `<html lang>`, titel, description, Open Graph, canonical en `hreflang` goed en herschrijft links naar `/en/...`;
 * onderhoudt de NL/EN-taalwisselaar en het hreflang-blok in de Nederlandse bronpagina's;
 * minificeert en zet achter css/js automatisch `?v=<hash>` (cache-versie uit de inhoud, niet meer handmatig);
-* schrijft `sitemap.xml` (beide talen met hreflang).
+* schrijft `sitemap.xml` (beide talen met hreflang, lastmod en foto's).
+* SEO: zet de teksten van `data-i18n`-elementen en `<title>`/meta uit `src/js/i18n.js` in de HTML (NL en EN), maakt
+  de dienstenpagina's `/diensten/<dienst>/` (uit `content/services.json`) en voegt canonical, hreflang, Open Graph,
+  Twitter, robots en JSON-LD toe (LocalBusiness, Service, FAQPage, BreadcrumbList, ItemList, CollectionPage, ContactPage).
+  Titels en descriptions per pagina wijzig je in `src/js/i18n.js` (`meta.title.*`, `meta.description.*`).
 
 Een nieuwe pagina toevoegen: maak de Nederlandse pagina in `src/` en voeg haar toe aan `PAGES` bovenin `build.py`.
 De 404-pagina is één bestand voor beide talen: onder `/en/...` kiest `src/js/main.js` zelf het Engels.
